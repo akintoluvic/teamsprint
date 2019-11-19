@@ -17,7 +17,7 @@
   color: #09d3ac;
   font-family: Roboto;
 }
-
+/* Homepage Styles */
 .home {
   display: flex;
   /* flex-direction: column; */
@@ -82,8 +82,37 @@
   color: #FFFFFF;
   margin: 5px 0 14px;
 }
-footer {
+.home footer {
   position: fixed;
   bottom: 30px;
   font-size: 12px;
+}
+
+/* Navbar */
+.navbar {
+  height: 80px;
+  background-color: #3C444D;
+}
+.navbar .contents {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1045px;
+  margin: auto;
+  text-transform: uppercase;
+}
+.navbar .brand {
+  display: inline-flex;
+  font-weight: bold;
+}
+.navbar .brand h2 {
+  font-size: 20px;
+  margin-left: 15px;
+}
+.navs .link {
+  text-decoration: none;
+  color: #CBCFD4;
+  margin-right: 30px;
 }
