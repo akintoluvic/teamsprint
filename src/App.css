@@ -17,7 +17,7 @@
   color: #09d3ac;
   font-family: Roboto;
 }
-
+/* Homepage Styles */
 .home {
   display: flex;
   /* flex-direction: column; */
@@ -82,8 +82,53 @@
   color: #FFFFFF;
   margin: 5px 0 14px;
 }
-footer {
+.home footer {
   position: fixed;
   bottom: 30px;
   font-size: 12px;
+}
+
+/* Navbar */
+.navbar {
+  height: 80px;
+  background-color: #3C444D;
+}
+.navbar .contents {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1045px;
+  margin: auto;
+  text-transform: uppercase;
+}
+.navbar .brand {
+  display: inline-flex;
+}
+.navbar .brand h2 {
+  font-size: 20px;
+  margin-left: 15px;
+  font-weight: bold;
+}
+/* .navbar .navs {
+  display: flex;
+  align-items: center;
+} */
+.navbar .link {
+  text-decoration: none;
+  color: #CBCFD4;
+  margin-right: 30px;
+}
+.navbar .user {
+  background-color: #2D333A;
+  height: 45px;
+  width: 45px;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-family: 'Rubik';
+  border: 0;
 }
