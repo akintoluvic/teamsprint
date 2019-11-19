@@ -1,15 +1,17 @@
 import React from 'react';
-import AuthExample from './testPAge';
+// import AuthExample from './testPAge';
 import Home from "./pages/Home";
-import logo from './logo.svg';
+import { BrowserRouter as Router } from "react-router-dom";
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-      {/* <AuthExample /> */}
-    </div>
+    <Router>
+      <div className="App">
+        <Home />
+        {/* <AuthExample /> */}
+      </div>
+    </Router>
   );
 }
 
