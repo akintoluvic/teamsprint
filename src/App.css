@@ -105,14 +105,30 @@
 }
 .navbar .brand {
   display: inline-flex;
-  font-weight: bold;
 }
 .navbar .brand h2 {
   font-size: 20px;
   margin-left: 15px;
+  font-weight: bold;
 }
-.navs .link {
+/* .navbar .navs {
+  display: flex;
+  align-items: center;
+} */
+.navbar .link {
   text-decoration: none;
   color: #CBCFD4;
   margin-right: 30px;
+}
+.navbar .user {
+  background-color: #2D333A;
+  height: 45px;
+  width: 45px;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  font-family: 'Rubik';
+  border: 0;
 }

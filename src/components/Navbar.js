@@ -15,6 +15,9 @@ export default function Navbar() {
                     <Link to="/public" className='link'>profile</Link>
                     <Link to="/public" className='link'>tags</Link>
                     <Link to="/public" className='link'>create-post</Link>
+                    <button className='user'>
+                        AS
+                    </button>
                 </div>
             </div>
         </div>
