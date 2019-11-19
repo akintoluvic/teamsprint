@@ -18,7 +18,7 @@ export default function Home() {
                 <p>
                 Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
                 </p>
-                <button>Get Started ></button>
+                <button>Get Login Details from Admin</button>
             </div>
             <form onSubmit={handleSubmit} className='home-form'>
                 <p>Signin</p>
