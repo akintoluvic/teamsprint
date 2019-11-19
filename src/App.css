@@ -28,9 +28,18 @@
   margin: auto;
 }
 .home-text {
-  width: 525px;
+  width: 545px;
 }
-
+.home-text h1 {
+  font-size: 44px;
+  color: #FFFFFF;
+  margin-top: -10px;
+}
+.home-text p {
+  font-size: 19px;
+  line-height: 158.47%;
+  margin-top: -10px;
+}
 .home-form {
   background: #3C444D;
   box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
@@ -58,7 +67,8 @@
   border: 0;
   margin-top: 17px;
   text-transform: uppercase;
-  font-family: Rubik;
+  font-size: 12px;
+  font-family: 'Rubik';
   color: #FFFFFF;
   font-weight: bold;
 }
@@ -70,5 +80,10 @@
   font-size: 24px;
   line-height: 28px;
   color: #FFFFFF;
-  margin: 0 0 9px;
+  margin: 5px 0 14px;
+}
+footer {
+  position: fixed;
+  bottom: 30px;
+  font-size: 12px;
 }

@@ -3,11 +3,7 @@ import React, { useState } from 'react';
 export default function Home() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
-    function validateForm() {
-        return email.length > 0 && password.length > 0;
-    }
-    
+  
     function handleSubmit(event) {
         event.preventDefault();
     }
@@ -18,20 +14,36 @@ export default function Home() {
                 <p>
                 Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
                 </p>
-                <button>Get Login Details from Admin</button>
+                {/* <button>Get started today</button> */}
             </div>
             <form onSubmit={handleSubmit} className='home-form'>
                 <p>Signin</p>
                 <label for="uname">Email address</label>
                 <br></br>
-                <input type="email" placeholder="username@email.com" name="uname" required />
+                <input 
+                    placeholder="username@email.com" 
+                    name="uname" 
+                    autoFocus
+                    type="email"
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    required 
+                />
                 <br></br>
-                <label for="psw">Password
+                <label for="psw">Password</label>
                 <br></br>
-                <input type="password" placeholder="Enter Password" name="psw" required /></label>
+                <input 
+                    type="password" 
+                    placeholder="Enter Password" 
+                    name="psw"
+                    value={password}
+                    onChange={e => setPassword(e.target.value)}
+                    required 
+                />
                 <br></br>
                 <button type="submit">SIGNIN ></button>
             </form>
+            <footer>©2019 Teamwork. All rights reserved.</footer>
         </div>
     )
 }
