@@ -12,7 +12,7 @@ export default function Home() {
         event.preventDefault();
     }
     return (
-        <div>
+        <div className='home'>
             <div className='home-text' >
                 <h1>Greene Teamwork App</h1>
                 <p>
@@ -20,15 +20,18 @@ export default function Home() {
                 </p>
                 <button>Get Started ></button>
             </div>
-            <div className='home-form' >
-                <form onSubmit={handleSubmit}>
-                    <label for="uname"><b>Email address</b></label>
-                    <input type="text" placeholder="username@email.com" name="uname" required />
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required />
-                    <button type="submit">Login</button>
-                </form>
-            </div>
+            <form onSubmit={handleSubmit} className='home-form'>
+                <p>Signin</p>
+                <label for="uname">Email address</label>
+                <br></br>
+                <input type="email" placeholder="username@email.com" name="uname" required />
+                <br></br>
+                <label for="psw">Password
+                <br></br>
+                <input type="password" placeholder="Enter Password" name="psw" required /></label>
+                <br></br>
+                <button type="submit">SIGNIN ></button>
+            </form>
         </div>
     )
 }

@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #30363D;
   color: #CBCFD4;
+  box-sizing: border-box;
 }
 
 code {
