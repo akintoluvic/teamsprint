@@ -92,6 +92,8 @@
 .navbar {
   height: 80px;
   background-color: #3C444D;
+  width: 100vw;
+  position: fixed;
 }
 .navbar .contents {
   height: 100%;
@@ -131,4 +133,27 @@
   color: #FFFFFF;
   font-family: 'Rubik';
   border: 0;
+}
+
+
+/* Other Pages */
+.page-container {
+  max-width: 1045px;
+  margin: auto;
+  background-color: #FFFFFF;
+  display: flex;
+  height: 50vh;
+  box-sizing: border-box;
+}
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  background: burlywood;
+}
+.main-feed {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  flex-grow: 2;
 }
