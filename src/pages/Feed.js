@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../components/Navbar";
-
+import SmallProfile from "../components/SmallProfile";
 
 export default function Feed() {
     return (
@@ -8,7 +8,7 @@ export default function Feed() {
             <Navbar />
             <div className='page-container'>
                 <div className='sidebar'>
-
+                    <SmallProfile />
                 </div>
                 <div className='main-feed'>
 
