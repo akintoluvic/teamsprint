@@ -287,7 +287,7 @@
   margin-bottom: 20px;
 }
 .each-comment :last-child() {
-  margin-bottom: 0;
+  margin-bottom: -20px;
 }
 .each-comment p {
   margin-left: 20px;
@@ -297,7 +297,15 @@
 }
 .each-comment .left {
   text-align: center;
+  font-size: 12px;
 }
-.each-comment .left {
-  text-align: center;
+.each-comment .left :first-child {
+  margin-bottom: 10px;
+}
+.each-feed h3 {
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 22px;
+  color: #FFFFFF;
+  margin-top: 0;
 }

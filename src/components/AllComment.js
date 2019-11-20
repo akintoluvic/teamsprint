@@ -5,6 +5,8 @@ export default function AllComment() {
         <div className='each-feed'>
             <h3>COMMENTS</h3>
             <EachComment />
+            <EachComment />
+            <EachComment />
         </div>
     )
 }
