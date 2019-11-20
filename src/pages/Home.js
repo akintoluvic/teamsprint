@@ -43,7 +43,7 @@ export default function Home() {
                 <br></br>
                 <button type="submit">SIGNIN ></button>
             </form>
-            <footer>©2019 Teamwork. All rights reserved.</footer>
+            <footer>©2019 Greene Teamwork. All rights reserved.</footer>
         </div>
     )
 }
