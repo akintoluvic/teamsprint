@@ -217,7 +217,7 @@
 .each-feed .headers {
   display: inline-flex;
   align-items: center;
-  margin-top: 0;
+  margin: 0 0 20px;
 }
 .each-feed .user {
   background-color: #2D333A;
@@ -229,4 +229,32 @@
   font-size: 14px;
   color: #FFFFFF;
   border: 0;
+}
+.each-feed h2 {
+  font-size: 24px;
+  line-height: 28px;
+  color: #FFFFFF;
+  margin: 0 0 0 20px;
+}
+.each-feed p {
+  margin-top: 0;
+}
+.each-feed .btn {
+  background-color: #2D333A;
+  height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 10px;
+  color: #FFFFFF;
+  border: 0;
+  text-transform: uppercase;
+}
+.each-feed .image {
+  border-radius: 6px;
+  margin-bottom: 20px;
+  height: 330px;
+  object-fit: cover;
 }

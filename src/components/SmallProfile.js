@@ -1,5 +1,5 @@
 import React from 'react';
-import avatar from '../images/avatar.jpg'
+import avatar from '../images/avatar.jpg';
 
 export default function SmallProfile() {
     return (

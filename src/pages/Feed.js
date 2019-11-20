@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
 import Article from "../components/Article";
+import Image from "../components/Image";
 
 export default function Feed() {
     return (
@@ -16,6 +17,7 @@ export default function Feed() {
                 </div>
                 <div className='main-feed'>
                     <Article />
+                    <Image />
                 </div>
             </div>
         </div>
