@@ -9,9 +9,9 @@ export default function Feed() {
             <div className='page-container'>
                 <div className='sidebar'>
                     <SmallProfile />
+                    <p>Copyright © 2018 Grada. All rights reserved.</p>
                 </div>
                 <div className='main-feed'>
-
                 </div>
             </div>
         </div>

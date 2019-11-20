@@ -27,6 +27,9 @@ function App() {
           <Route component={Error} />
         </Switch> */}
         {/* <AuthExample /> */}
+
+
+        {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
       </div>
     </Router>
   );
