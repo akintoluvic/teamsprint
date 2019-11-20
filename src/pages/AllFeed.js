@@ -2,10 +2,9 @@ import React from 'react';
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
-import Article from "../components/Article";
-import Image from "../components/Image";
+import Feed from "../partials/Feed";
 
-export default function Feed() {
+export default function AllFeed() {
     return (
         <div>
             <Navbar />
@@ -16,12 +15,7 @@ export default function Feed() {
                     <p>©2019 Greene Teamwork. All rights reserved.</p>
                 </div>
                 <div className='main-feed'>
-                    <Article />
-                    <Image />
-                    <Article />
-                    <Image />
-                    <Article />
-                    <Image />
+                    <Feed />
                 </div>
             </div>
         </div>

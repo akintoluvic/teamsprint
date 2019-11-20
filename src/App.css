@@ -218,8 +218,13 @@
 }
 .each-feed .headers {
   display: inline-flex;
+  justify-content: space-between;
   align-items: center;
   margin: 0 0 20px;
+}
+.each-feed .headers .left {
+  display: inline-flex;
+  align-items: center;
 }
 .each-feed .user {
   background-color: #2D333A;
@@ -239,6 +244,8 @@
   margin: 0 0 0 20px;
 }
 .each-feed p {
+  font-size: 14px;
+  line-height: 22px;
   margin-top: 0;
 }
 .each-feed .btn {
@@ -256,6 +263,9 @@
 }
 .each-feed .footer .btn {
   margin-right: 20px;
+}
+.each-feed .headers .btn {
+  text-transform: none;
 }
 .each-feed .image {
   border-radius: 6px;

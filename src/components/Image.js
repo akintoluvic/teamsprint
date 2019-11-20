@@ -5,8 +5,11 @@ export default function Article() {
     return (
         <div className='each-feed'>
             <div className='headers'>
-                <button className='user'>AS</button>
-                <h2 className='title'>Simple Text Headers in this World</h2>
+                <div className='left'>
+                    <button className='user'>AS</button>
+                    <h2 className='title'>Simple Text Headers in this World. </h2>
+                </div>
+                <button className='btn'>21m</button>
             </div>
             <img className='image' src={sampleImage} alt='feed title'/>
             <div className='footer'>
