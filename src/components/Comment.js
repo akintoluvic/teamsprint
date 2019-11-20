@@ -10,9 +10,8 @@ export default function Comment() {
                 cols="50" 
                 placeholder='Write your comment here...'
             ></textarea>
-            <div className='footer'>
-                <button className='btn'>work stuff</button>
-                <button className='btn'>VIEW full POST and COMMENTS</button>
+            <div className='comment-container'>
+                <button className='btn'>POST COMMENT</button>
             </div>
         </div>
     )
