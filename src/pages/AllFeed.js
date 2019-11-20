@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
 import Feed from "../partials/Feed";
+import EachPost from "../partials/EachPost";
 
 export default function AllFeed() {
     return (
@@ -15,7 +16,8 @@ export default function AllFeed() {
                     <p>©2019 Greene Teamwork. All rights reserved.</p>
                 </div>
                 <div className='main-feed'>
-                    <Feed />
+                    {/* <Feed /> */}
+                    <EachPost />
                 </div>
             </div>
         </div>
