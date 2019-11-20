@@ -1,7 +1,7 @@
 import React from 'react';
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
-import Feed from "./pages/Feed";
+import AllFeed from "./pages/AllFeed";
 import Navbar from "./components/Navbar";
 import {
   BrowserRouter as Router,
@@ -19,7 +19,7 @@ function App() {
     <Router>
       <div className="App">
         {/* <Home /> */}
-        <Feed />
+        <AllFeed />
         {/* <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/rooms/" component={Feed} />
