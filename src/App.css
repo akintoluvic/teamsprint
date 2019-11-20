@@ -282,3 +282,22 @@
   font-size: 14px;
   color: #CBCFD4;
 }
+.each-comment {
+  display: inline-flex;
+  margin-bottom: 20px;
+}
+.each-comment :last-child() {
+  margin-bottom: 0;
+}
+.each-comment p {
+  margin-left: 20px;
+  padding: 15px 20px;
+  background: #2D333A;
+  border-radius: 6px;
+}
+.each-comment .left {
+  text-align: center;
+}
+.each-comment .left {
+  text-align: center;
+}
