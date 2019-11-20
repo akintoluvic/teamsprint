@@ -7,11 +7,11 @@ export default function SidebarTags() {
             <h3>Tags</h3>
             <div className='links'>
                 <Link to="/public" className='link'>work stuff</Link>
-                <hr></hr>
+                <hr />
                 <Link to="/public" className='link'>fun time</Link>
-                <hr></hr>
+                <hr />
                 <Link to="/public" className='link'>tags</Link>
-                <hr></hr>
+                <hr />
                 <Link to="/public" className='link'>create-post</Link>
             </div>
         </div>

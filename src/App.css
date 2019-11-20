@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  font-family: 'Rubik';
 }
 /* Homepage Styles */
 .home {
@@ -84,7 +85,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  align-items: center;
   max-width: 1045px;
   margin: auto;
   text-transform: uppercase;
@@ -115,7 +115,6 @@
   font-weight: bold;
   font-size: 14px;
   color: #FFFFFF;
-  font-family: 'Rubik';
   border: 0;
 }
 
@@ -202,4 +201,32 @@
   line-height: 28px;
   color: #FFFFFF;
   margin: 0 0 20px;
+}
+
+/* General Feeds Styling */
+.each-feed {
+  width: 100%;
+  background: #3C444D;
+  box-shadow: 0px 30px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin-bottom: 20px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+}
+.each-feed .headers {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0;
+}
+.each-feed .user {
+  background-color: #2D333A;
+  height: 45px;
+  width: 45px;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #FFFFFF;
+  border: 0;
 }
