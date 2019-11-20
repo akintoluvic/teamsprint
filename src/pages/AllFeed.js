@@ -4,6 +4,7 @@ import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
 import Feed from "../partials/Feed";
 import EachPost from "../partials/EachPost";
+import Post from "../partials/Post";
 
 export default function AllFeed() {
     return (
@@ -17,7 +18,8 @@ export default function AllFeed() {
                 </div>
                 <div className='main-feed'>
                     {/* <Feed /> */}
-                    <EachPost />
+                    {/* <EachPost /> */}
+                    <Post />
                 </div>
             </div>
         </div>

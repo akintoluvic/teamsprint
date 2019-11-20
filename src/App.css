@@ -312,3 +312,9 @@
 /* .comment-container .btn {
   align-self: flex-end;
 } */
+.post .headers {
+  margin-bottom: 0;
+}
+.post label {
+  margin-bottom: 7px;
+}
