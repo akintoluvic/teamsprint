@@ -146,8 +146,10 @@
   flex-direction: column;
   width: 685px;
   margin-left: 30px;
-  /* flex-grow: 2; */
 }
+/* .main-feed :last-child() {
+  margin-bottom: 50px;
+} */
 
 /* Sidebar */
 .small-profile {
@@ -251,6 +253,9 @@
   color: #FFFFFF;
   border: 0;
   text-transform: uppercase;
+}
+.each-feed .footer .btn {
+  margin-right: 20px;
 }
 .each-feed .image {
   border-radius: 6px;

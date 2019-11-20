@@ -1,7 +1,7 @@
 import React from 'react';
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
-import Feed from "./pages/Feed";
+import Feed from "./pages/AllFeed";
 import Navbar from "./components/Navbar";
 import {
   BrowserRouter as Router,

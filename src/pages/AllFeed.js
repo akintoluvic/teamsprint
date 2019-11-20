@@ -18,6 +18,10 @@ export default function Feed() {
                 <div className='main-feed'>
                     <Article />
                     <Image />
+                    <Article />
+                    <Image />
+                    <Article />
+                    <Image />
                 </div>
             </div>
         </div>
