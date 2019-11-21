@@ -9,55 +9,120 @@ export default function Post() {
         event.preventDefault();
     }
     return (
-        <>
-        <div className='each-feed post'>
-            <div className='headers'>
-                <h2 className='title'>Profile</h2>
-                <button className='btn'>Back to My feed</button>
-            </div>
+      <>
+        <div className="each-feed post">
+          <div className="headers">
+            <h2 className="title">Profile</h2>
+            <button className="btn">Back to My feed</button>
+          </div>
         </div>
-        {/* <div className='each-feed post'>
-            <div>
-                <label for="title">Post Title*</label>
-                <br></br>
-                <input 
-                    placeholder="username@email.com" 
-                    className='comment'
-                    name="title" 
-                    autoFocus
-                    type="text"
-                    // value={email}
-                    // onChange={e => setEmail(e.target.value)}
-                    required 
-                />
-            </div> */}
-            <form onSubmit={handleSubmit} className='profile-form'>
-                <label for="uname">Email address
-                <br></br>
-                <input 
-                    placeholder="username@email.com" 
-                    name="uname" 
-                    autoFocus
-                    type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                    required 
-                /></label>
-                <label for="psw">Password
-                <br></br>
-                <input 
-                    type="password" 
-                    placeholder="Enter Password" 
-                    name="psw"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
-                    required 
-                /></label>
-                <button type="submit">SIGNIN ></button>
-                <button type="submit">SIGNIN ></button>
-            </form>
-            
-        {/* </div> */}
-        </>
-    )
+
+        <form onSubmit={handleSubmit} className="profile-form">
+          <label for="fname">
+            Firstname
+            <input
+              placeholder="Firstname"
+              name="fname"
+              autoFocus
+              type="text"
+            //   value={firstname}
+            //   onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label for="lastname">
+            Lastname
+            <input
+              type="text"
+              placeholder="Lastname"
+              name="lastname"
+            //   value={password}
+            //   onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label for="uname">
+            Email address
+            <input
+              placeholder="username@email.com"
+              name="uname"
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label for="psw">
+            Password
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label for="gender">
+            Gender
+            <input
+              placeholder="Gender"
+              name="gender"
+              type="text"
+            //   value={email}
+            //   onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label for="job">
+            Job Role
+            <input
+              type="text"
+              placeholder="Job Role"
+              name="job"
+            //   value={password}
+            //   onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label for="dept">
+            Department
+            <input
+              placeholder="Department"
+              name="dept"
+              type="text"
+            //   value={email}
+            //   onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label for="street">
+            Street Address
+            <input
+              type="text"
+              placeholder="17, Opposite Nadia Bread, Oka Road"
+              name="street"
+            //   value={password}
+            //   onChange={e => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label for="area">
+            Area/City and County
+            <input
+              placeholder="Ugbor Express Road, Benin, Nigeria"
+              name="area"
+              type="text"
+            //   value={email}
+            //   onChange={e => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label for="submit">Submit
+              <button type="submit" name="submit">SUBMIT</button>
+          </label>
+          
+        </form>
+      </>
+    );
 }
