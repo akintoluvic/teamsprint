@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import sampleImage from '../images/sample-image.png';
 
 export default function Post() {
     const [email, setEmail] = useState("");
@@ -13,7 +12,7 @@ export default function Post() {
         <div className="each-feed post">
           <div className="headers">
             <h2 className="title">Profile</h2>
-            <button className="btn">Back to My feed</button>
+            <button className="btn"> Back to My feed</button>
           </div>
         </div>
 
@@ -36,7 +35,7 @@ export default function Post() {
               type="text"
               placeholder="Lastname"
               name="lastname"
-            //   value={password}
+            //   value={lastname}
             //   onChange={e => setPassword(e.target.value)}
               required
             />
@@ -69,7 +68,7 @@ export default function Post() {
               placeholder="Gender"
               name="gender"
               type="text"
-            //   value={email}
+            //   value={gender}
             //   onChange={e => setEmail(e.target.value)}
               required
             />
@@ -80,7 +79,7 @@ export default function Post() {
               type="text"
               placeholder="Job Role"
               name="job"
-            //   value={password}
+            //   value={jobRole}
             //   onChange={e => setPassword(e.target.value)}
               required
             />
@@ -91,7 +90,7 @@ export default function Post() {
               placeholder="Department"
               name="dept"
               type="text"
-            //   value={email}
+            //   value={department}
             //   onChange={e => setEmail(e.target.value)}
               required
             />
@@ -102,7 +101,7 @@ export default function Post() {
               type="text"
               placeholder="17, Opposite Nadia Bread, Oka Road"
               name="street"
-            //   value={password}
+            //   value={street}
             //   onChange={e => setPassword(e.target.value)}
               required
             />
@@ -113,7 +112,7 @@ export default function Post() {
               placeholder="Ugbor Express Road, Benin, Nigeria"
               name="area"
               type="text"
-            //   value={email}
+            //   value={area}
             //   onChange={e => setEmail(e.target.value)}
               required
             />
