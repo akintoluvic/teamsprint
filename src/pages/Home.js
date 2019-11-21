@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
+import {
+    Redirect,
+    useHistory,
+    useLocation
+  } from "react-router-dom";
 
-export default function Home() {
+export default function Home(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    let location = useLocation();
   
     function handleSubmit(event) {
         event.preventDefault();
+        return <Redirect
+        to={{
+          pathname: "/feed",
+          state: { from: location }
+        }}
+        // props.userHasAuthenticated(true);
+        // props.history.push("/");
+      />
     }
     return (
         <div className='home'>
