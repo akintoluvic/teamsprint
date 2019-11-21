@@ -6,16 +6,12 @@ export default function Post() {
         <>
         <div className='each-feed post'>
             <div className='headers'>
-                <div className='left'>
-                    <h2 className='title'>Post</h2>
-                    <button className='btn'>Article</button>
-                    <button className='btn'>Image</button>
-                </div>
+                <h2 className='title'>Post</h2>
                 <button className='btn'>Back to My feed</button>
             </div>
         </div>
         <div className='each-feed post'>
-            <label for="title">Article Title*</label>
+            <label for="title">Post Title*</label>
             <br></br>
             <input 
                 placeholder="username@email.com" 
@@ -27,7 +23,7 @@ export default function Post() {
                 // onChange={e => setEmail(e.target.value)}
                 required 
             />
-            <label for="article">Article Title*</label>
+            <label for="article">Post Body*</label>
             <br></br>
             <textarea 
                 className='comment'
@@ -36,10 +32,15 @@ export default function Post() {
                 cols="50" 
                 placeholder='Write your comment here...'
             ></textarea>
+            <div>
+                <label for="image">Upload Image</label>
+            <input type="file" name="image" id="" disabled/>
+            </div>
+            
+            
             <div className='headers'>
                 <div className='left'>
                     <label for="tag">Article Tag*</label>
-                    <br></br>
                     <input 
                         placeholder="Type tag here..." 
                         className='comment'

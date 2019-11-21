@@ -313,8 +313,23 @@
   align-self: flex-end;
 } */
 .post .headers {
-  margin-bottom: 0;
+  margin-bottom: -10px;
+  margin-top: -10px;
 }
 .post label {
   margin-bottom: 7px;
+}
+.post .headers .comment {
+  padding: 9px 20px;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+.post .headers .left {
+  display: inline-flex;
+  align-items: center;
+}
+
+[type="file"] {
+  margin: 0 0 20px 20px;
+  background: #3C444C;
 }
