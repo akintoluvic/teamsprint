@@ -2,7 +2,12 @@ import React from 'react';
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
 import AllFeed from "./pages/AllFeed";
-import Navbar from "./components/Navbar";
+import ProfileForm from "./components/ProfileForm";
+import Feed from "./pages/Feed";
+import EachPost from "./pages/EachPost";
+import Post from "./partials/Post";
+import CreatePost from "./pages/CreatePost";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -18,15 +23,22 @@ function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Home /> */}
-        <AllFeed />
-        {/* <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/rooms/" component={Feed} />
-          <Route exact path="/rooms/:slug" component={SingleRoom} /> 
-          <Route component={Error} />
-        </Switch> */}
-        {/* <AuthExample /> */}
+      <Switch>
+            <Route exact path="/" component={Home}/>
+              <Route exact path="/feed">
+                <Feed />
+              </Route>
+              <Route exact path="/create-user">
+                <ProfileForm />
+              </Route>
+              <Route exact path="/post">
+                <CreatePost />
+              </Route>
+              <Route exact path="/a-post">
+                <EachPost />
+              </Route>
+              <Route component={Error} />
+        </Switch>
 
 
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
