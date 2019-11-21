@@ -38,12 +38,12 @@ export default function Post() {
             ></textarea>
             <div className='headers'>
                 <div className='left'>
-                    <label for="title">Article Title*</label>
+                    <label for="tag">Article Tag*</label>
                     <br></br>
                     <input 
-                        placeholder="username@email.com" 
+                        placeholder="Type tag here..." 
                         className='comment'
-                        name="title" 
+                        name="tag" 
                         autoFocus
                         type="text"
                         // value={email}
