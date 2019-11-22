@@ -3,8 +3,8 @@ import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
 import ProfileForm from "../components/ProfileForm";
-import Feed from "./Feed";
-import EachPost from "./EachPost";
+import Feed from "../partials/Feed";
+import EachPost from "../partials/EachPost";
 import Post from "../partials/Post";
 import {
     Switch,
