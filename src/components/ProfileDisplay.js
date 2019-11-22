@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function ProfileForm(props) {
+export default function ProfileDisplay(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   

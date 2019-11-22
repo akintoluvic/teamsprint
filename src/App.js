@@ -21,6 +21,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route component={AllFeed} />
+          <Route exact path="/feed" component={AllFeed} />
         </Switch>
 
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
