@@ -33,6 +33,9 @@ export default function AllFeed() {
               <Route path="/create-user">
                 <ProfileForm />
               </Route>
+              <Route path="/profile">
+                <ProfileForm />
+              </Route>
               <Route path="/post">
                 <Post />
               </Route>
