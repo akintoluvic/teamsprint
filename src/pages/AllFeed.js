@@ -32,7 +32,10 @@ export default function AllFeed() {
               <Route path="/create-user">
                 <ProfileForm />
               </Route>
-              <Route path="/profile">
+              <Route path="/profile" >
+                <ProfileForm att='disabled'/>
+              </Route>
+              <Route path="/edit-profile">
                 <ProfileForm />
               </Route>
               <Route path="/post">

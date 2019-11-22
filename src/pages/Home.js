@@ -11,7 +11,7 @@ export default function Home(props) {
     let location = useLocation();
   
     function handleSubmit(event) {
-        event.preventDefault();
+        // event.preventDefault();
         return <Redirect
         to={{
           pathname: "/feed",
@@ -28,7 +28,7 @@ export default function Home(props) {
                 <p>
                 Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
                 </p>
-                {/* <button>Get started today</button> */}
+                <button onSubmit={handleSubmit}>Get started today</button>
             </div>
             <form onSubmit={handleSubmit} className='home-form'>
                 <p>Signin</p>

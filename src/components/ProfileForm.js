@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function Post() {
+export default function Post(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
   
@@ -18,7 +18,7 @@ export default function Post() {
 
         <form onSubmit={handleSubmit} className="profile-form">
           <label for="fname">
-            Firstname
+            Firstname {props.att}
             <input
               placeholder="Firstname"
               name="fname"
