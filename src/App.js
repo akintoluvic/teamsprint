@@ -1,33 +1,27 @@
-import React from 'react';
+import React from "react";
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
 import AllFeed from "./pages/AllFeed";
-import Navbar from "./components/Navbar";
+
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
   // Link,
   // Redirect,
   // useHistory,
   // useLocation
 } from "react-router-dom";
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        {/* <Home /> */}
-        <AllFeed />
-        {/* <Switch>
+        <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/rooms/" component={Feed} />
-          <Route exact path="/rooms/:slug" component={SingleRoom} /> 
-          <Route component={Error} />
-        </Switch> */}
-        {/* <AuthExample /> */}
-
+          <Route component={AllFeed} />
+        </Switch>
 
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
       </div>

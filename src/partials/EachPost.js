@@ -11,5 +11,6 @@ export default function Feed() {
             <Comment />
             <AllComment />
         </div>
-    )
+      );
 }
+

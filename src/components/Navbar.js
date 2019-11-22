@@ -11,10 +11,12 @@ export default function Navbar() {
                     <h2>Teamwork</h2>
                 </div>
                 <div className='navs'>
-                    <Link to="/public" className='link'>my feed</Link>
-                    <Link to="/public" className='link'>profile</Link>
+                    <Link to="/feed" className='link'>my feed</Link>
+                    <Link to="/profile" className='link'>profile</Link>
                     <Link to="/public" className='link'>tags</Link>
-                    <Link to="/public" className='link'>create-post</Link>
+                    <Link to="/post" className='link'>create-post</Link>
+                    <Link to="/create-user" className='link'>create-user</Link>
+                    <Link to="/a-post" className='link'>single post</Link>
                     <button className='user'>
                         AS
                     </button>
