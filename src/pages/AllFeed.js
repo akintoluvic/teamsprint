@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
@@ -14,9 +14,10 @@ import {
     useLocation
   } from "react-router-dom";
 
-export default function AllFeed() {
-    return (
-      <div>
+  export default class AllFeed extends Component {
+    render() {
+      return (
+        <div>
         <Navbar />
         <div className="page-container">
           <div className="sidebar">
@@ -50,4 +51,5 @@ export default function AllFeed() {
         </div>
       </div>
     );
+  }
 }
