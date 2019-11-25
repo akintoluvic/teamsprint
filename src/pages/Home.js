@@ -7,10 +7,11 @@ import {
   } from "react-router-dom";
 
 export default function Home(props) {
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         email: "",
         password: "",
-        err: ''
+        err: '',
+        
       })
       const {setAuth} = props;
 
