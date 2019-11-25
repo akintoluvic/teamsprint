@@ -12,14 +12,9 @@ export default function Home(props) {
         password: "",
         err: ''
       })
-    
-    //   render() {
-    //     if (this.state.toDashboard === true) {
-    //       return <Redirect to='/dashboard' />
-    //     }
-    
-  
-    function handleSubmit(e) {
+      const {setAuth} = props;
+
+      function handleSubmit(e) {
         e.preventDefault();
         const user = {
             email: state.email,
@@ -45,8 +40,10 @@ export default function Home(props) {
                     return props.history.push("/");
                 }
                 console.log(res)
+                console.log(setAuth);
+                
+                props.setAuth(true, res.data);
                 props.history.push("/feed");
-                props.auth(true, res.data);
             })
             .catch(error => console.log(error));
 

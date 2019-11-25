@@ -22,7 +22,7 @@ function App() {
   })
   function pageAuth(val, valu) {
     setState({
-      ispageenticated: val,
+      isAuthenticated: val,
       profile: valu
     });
   }
@@ -30,9 +30,9 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/">
-            <Home setAuth={pageAuth}/>
-          </Route>
+          <Route exact path="/" component={Home} setAuth={pageAuth} />
+            {/* <Home/>
+          </Route> */}
           <ProtectedRoute auth={state.isAuthenticated}>
             <AllFeed />
           </ProtectedRoute>
