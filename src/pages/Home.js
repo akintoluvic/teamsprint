@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import {
     Link,
-    Redirect,
+    // Redirect,
     // useHistory,
-    useLocation
+    // useLocation
   } from "react-router-dom";
 
 export default function Home(props) {
     const [state, setState] = React.useState({
         email: "",
         password: "",
+        err: ''
       })
     
     //   render() {
@@ -34,9 +35,20 @@ export default function Home(props) {
         fetch('http://localhost:3001/api/v1/auth/signin', options)
             .then(res => res.json())
             .then(res => {
+                if(res.error) {
+                    console.log(res.error)
+                    setState({
+                        ...state,
+                        err: res.error
+                      });
+                      console.log(state.err);
+                    return props.history.push("/");
+                }
                 console.log(res)
                 props.history.push("/feed");
-            });
+                props.auth(true, res.data);
+            })
+            .catch(error => console.log(error));
 
         // props.userHasAuthenticated(true);
         
@@ -86,7 +98,7 @@ export default function Home(props) {
                     onChange={handleChange}
                     required 
                 />
-                <br></br>
+                {(state.err.lenght === '') ? <br></br> : <p className='error'>{state.err}</p>}
                 <button >start teamwork</button>
             </form>
             <footer>©2019 Greene Teamwork. All rights reserved.</footer>

@@ -14,19 +14,29 @@ import {
 } from "react-router-dom";
 import "./App.css";
 
+
 function App() {
   const [state, setState] = React.useState({
     isAuthenticated: false,
+    profile: {}
   })
+  function pageAuth(val, valu) {
+    setState({
+      ispageenticated: val,
+      profile: valu
+    });
+  }
   return (
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} />
-            {/* <Home />
-          </Route> */}
-          <Route component={AllFeed} />
-          <Route exact path="/feed" component={AllFeed} />
+          <Route exact path="/">
+            <Home setAuth={pageAuth}/>
+          </Route>
+          <ProtectedRoute auth={state.isAuthenticated}>
+            <AllFeed />
+          </ProtectedRoute>
+          {/* <Route exact path="/feed" component={AllFeed} /> */}
         </Switch>
 
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
@@ -38,10 +48,13 @@ function App() {
 export default App;
 
 
-function ProtectedRoute() {
-  // this.setState({ isAuthenticated: true})
+function ProtectedRoute(props) {
+  if (!props.auth) {
+    // props.history.push("/");
+    return <Route component={Home}/>
+  }
   return (
     <Route component={AllFeed}/>
-  )
+  );
 }
 
