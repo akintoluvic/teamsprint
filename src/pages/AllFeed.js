@@ -3,6 +3,7 @@ import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
 import ProfileForm from "../components/ProfileForm";
+import ProfileDisplay from "../components/ProfileDisplay";
 import Feed from "../partials/Feed";
 import EachPost from "../partials/EachPost";
 import Post from "../partials/Post";
@@ -18,14 +19,19 @@ import {
     constructor() {
       super();
       this.state = {
-        loading: true,
-        redirect: false,
+        // loading: true,
+        // redirect: false,
         profile: {
-          firstNAme: 'Lola', lastName: 'Loki', email: 'ase@we.co',
+          userId: 1,
+          firstName: 'Lola', lastName: 'Loki', email: 'ase@we.co',
           gender: 'male', jobRole: 'Bardy', department: 'Accounting',
           street: '12, Adewou street', area: 'Were LAne, Ota, Ogun'
-        }
+        },
+        feed: {}
       };
+    }
+    handleChange = (e) => {
+      console.log(e.target.value);
     }
     render() {
       return (
@@ -43,10 +49,17 @@ import {
                 <Feed />
               </Route>
               <Route path="/create-user">
-                <ProfileForm profile={this.state.profile} />
+                <ProfileForm 
+                userProfile={this.profile}
+                button='CREATE USER'
+                profileChange={this.handleChange}
+              />
               </Route>
               <Route path="/profile" >
-                <ProfileForm att='disabled'/>
+                <ProfileDisplay 
+                  userProfile={this.state.profile}
+                  button='EDIT PROFILE'
+                />
               </Route>
               <Route path="/edit-profile">
                 <ProfileForm />

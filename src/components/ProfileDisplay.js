@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function ProfileDisplay(props) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    // const [email, setEmail] = useState("");
+    // const [password, setPassword] = useState("");
+
+    const {userProfile, button} = props;
   
     function handleSubmit(event) {
         event.preventDefault();
@@ -18,15 +21,15 @@ export default function ProfileDisplay(props) {
 
         <form onSubmit={handleSubmit} className="profile-form">
           <label for="fname">
-            Firstname {props.att}
+            Firstname
             <input
               placeholder="Firstname"
               name="fname"
               autoFocus
               type="text"
-            //   value={firstname}
-            //   onChange={e => setEmail(e.target.value)}
-              required
+              value={userProfile.firstName}
+              // onChange={e => setEmail(e.target.value)}
+              disabled
             />
           </label>
           <label for="lastname">
@@ -35,9 +38,9 @@ export default function ProfileDisplay(props) {
               type="text"
               placeholder="Lastname"
               name="lastname"
-            //   value={lastname}
+              value={userProfile.lastName}
             //   onChange={e => setPassword(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="uname">
@@ -46,20 +49,20 @@ export default function ProfileDisplay(props) {
               placeholder="username@email.com"
               name="uname"
               type="email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              required
+              value={userProfile.email}
+              // onChange={e => setEmail(e.target.value)}
+              disabled
             />
           </label>
           <label for="psw">
             Password
             <input
               type="password"
-              placeholder="Enter Password"
+              placeholder="xxxxxxxx"
               name="psw"
-              value={password}
-              onChange={e => setPassword(e.target.value)}
-              required
+              // value={password}
+              // onChange={e => setPassword(e.target.value)}
+              disabled
             />
           </label>
           <label for="gender">
@@ -68,9 +71,9 @@ export default function ProfileDisplay(props) {
               placeholder="Gender"
               name="gender"
               type="text"
-            //   value={gender}
+              value={userProfile.gender}
             //   onChange={e => setEmail(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="job">
@@ -79,9 +82,9 @@ export default function ProfileDisplay(props) {
               type="text"
               placeholder="Job Role"
               name="job"
-            //   value={jobRole}
+              value={userProfile.jobRole}
             //   onChange={e => setPassword(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="dept">
@@ -90,9 +93,9 @@ export default function ProfileDisplay(props) {
               placeholder="Department"
               name="dept"
               type="text"
-            //   value={department}
+              value={userProfile.department}
             //   onChange={e => setEmail(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="street">
@@ -101,9 +104,9 @@ export default function ProfileDisplay(props) {
               type="text"
               placeholder="17, Opposite Nadia Bread, Oka Road"
               name="street"
-            //   value={street}
+              value={userProfile.street}
             //   onChange={e => setPassword(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="area">
@@ -112,13 +115,15 @@ export default function ProfileDisplay(props) {
               placeholder="Ugbor Express Road, Benin, Nigeria"
               name="area"
               type="text"
-            //   value={area}
+              value={userProfile.area}
             //   onChange={e => setEmail(e.target.value)}
-              required
+              disabled
             />
           </label>
           <label for="submit">Submit
-              <button type="submit" name="submit">SUBMIT</button>
+            <Link to='/edit-profile'>
+              <button type="submit" name="submit" disabled>{button}</button>
+              </Link>
           </label>
           
         </form>
