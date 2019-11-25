@@ -15,6 +15,18 @@ import {
   } from "react-router-dom";
 
   export default class AllFeed extends Component {
+    constructor() {
+      super();
+      this.state = {
+        loading: true,
+        redirect: false,
+        profile: {
+          firstNAme: 'Lola', lastName: 'Loki', email: 'ase@we.co',
+          gender: 'male', jobRole: 'Bardy', department: 'Accounting',
+          street: '12, Adewou street', area: 'Were LAne, Ota, Ogun'
+        }
+      };
+    }
     render() {
       return (
         <div>
@@ -31,7 +43,7 @@ import {
                 <Feed />
               </Route>
               <Route path="/create-user">
-                <ProfileForm />
+                <ProfileForm profile={this.state.profile} />
               </Route>
               <Route path="/profile" >
                 <ProfileForm att='disabled'/>
