@@ -10,9 +10,9 @@ import Post from "../partials/Post";
 import {
     Switch,
     Route,
-    Redirect,
-    useHistory,
-    useLocation
+    // Redirect,
+    // useHistory,
+    // useLocation
   } from "react-router-dom";
 
   export default class AllFeed extends Component {
@@ -27,7 +27,8 @@ import {
           gender: 'male', jobRole: 'Bardy', department: 'Accounting',
           street: '12, Adewou street', area: 'Were LAne, Ota, Ogun'
         },
-        feed: {}
+        feed: {},
+        token: ''
       };
     }
     handleChange = (e) => {

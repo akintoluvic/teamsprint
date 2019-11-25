@@ -15,11 +15,16 @@ import {
 import "./App.css";
 
 function App() {
+  const [state, setState] = React.useState({
+    isAuthenticated: false,
+  })
   return (
     <Router>
       <div className="App">
         <Switch>
           <Route exact path="/" component={Home} />
+            {/* <Home />
+          </Route> */}
           <Route component={AllFeed} />
           <Route exact path="/feed" component={AllFeed} />
         </Switch>
@@ -31,3 +36,12 @@ function App() {
 }
 
 export default App;
+
+
+function ProtectedRoute() {
+  // this.setState({ isAuthenticated: true})
+  return (
+    <Route component={AllFeed}/>
+  )
+}
+

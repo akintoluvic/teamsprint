@@ -1,5 +1,4 @@
 import React from 'react';
-import sampleImage from '../images/sample-image.png';
 
 export default function Post() {
     return (

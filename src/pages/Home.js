@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {
     Link,
-    // Redirect,
+    Redirect,
     // useHistory,
     useLocation
   } from "react-router-dom";
@@ -10,20 +10,8 @@ export default function Home(props) {
     const [state, setState] = React.useState({
         email: "",
         password: "",
-        toDashboard: false,
-        // handleSubmit: this.handleSubmit.bind(this)
       })
-    let location = useLocation();
     
-    // state = {
-    //     toDashboard: false,
-    //   }
-    //   handleSubmit = (user) => {
-    //     saveUser(user)
-    //       .then(() => this.setState(() => ({
-    //         toDashboard: true
-    //       })))
-    //   }
     //   render() {
     //     if (this.state.toDashboard === true) {
     //       return <Redirect to='/dashboard' />
@@ -31,40 +19,28 @@ export default function Home(props) {
     
   
     function handleSubmit(e) {
-        // event.preventDefault();
+        e.preventDefault();
         const user = {
-            // email,
-            // password
+            email: state.email,
+            password: state.password
         };
-        
         const options = {
             method: 'POST',
             body: JSON.stringify(user),
             headers: {
                 'Content-Type': 'application/json'
             }
-        }
-        
+        };
         fetch('http://localhost:3001/api/v1/auth/signin', options)
             .then(res => res.json())
-            .then(res => console.log(res));
+            .then(res => {
+                console.log(res)
+                props.history.push("/feed");
+            });
 
-        console.log(Response);
-        // saveUser(user).then(() =>
-        //   this.setState(() => ({
-        //     toDashboard: true
-        //   }))
-        // );
-        // return <Redirect
-        // to={{
-        //   pathname: "/feed",
-        //   state: { from: location }
-        // }}
-        // />
-        
         // props.userHasAuthenticated(true);
-        // props.history.push("/");
-      
+        
+
     }
     function handleChange(e) {
         const value = e.target.value;
@@ -84,7 +60,7 @@ export default function Home(props) {
                 <button >Get started today</button>
                 </Link>
             </div>
-            <form onClick={handleSubmit} className='home-form' 
+            <form onSubmit={handleSubmit} className='home-form' 
                 action='http://localhost:3001/api/v1/auth/signin'
                 method='post'>
                 <p>Signin</p>

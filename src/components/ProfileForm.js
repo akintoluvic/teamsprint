@@ -10,6 +10,14 @@ export default function ProfileDisplay(props) {
     // handleSubmit: this.handleSubmit.bind(this)
   })
 
+  function handleChange(e) {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value
+    });
+  }
+
     const {profile, button, profileChange} = props;
   
     function handleSubmit(e) {
@@ -34,7 +42,7 @@ export default function ProfileDisplay(props) {
               autoFocus
               type="text"
               value={profile.firstName}
-              onChange={this.profileChange}
+              onChange={handleChange}
               required
             />
           </label>
