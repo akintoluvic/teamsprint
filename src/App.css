@@ -45,7 +45,7 @@
 }
 .home-form button,
 .home-text button {
-  width: 270px;
+  width: 250px;
   height: 40px;
   background: linear-gradient(90deg, #F27A54 0%, #A154F2 100%);
   border-radius: 6px;
@@ -59,6 +59,13 @@
 }
 .home-form label {
   font-size: 14px;
+}
+.home-form .error {
+  font-size: 12px;
+  color: red;
+  margin-top: -10px;
+  margin-bottom: -10px;
+  box-sizing: border-box;
 }
 .home-form p {
   text-align: center;

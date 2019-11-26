@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    Redirect,
-    useHistory,
-    useLocation
+    Link,
+    // Redirect,
+    // useHistory,
+    // useLocation
   } from "react-router-dom";
 
 export default function Home(props) {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    let location = useLocation();
-  
-    function handleSubmit(event) {
-        event.preventDefault();
-        return <Redirect
-        to={{
-          pathname: "/feed",
-          state: { from: location }
-        }}
-        // props.userHasAuthenticated(true);
-        // props.history.push("/");
-      />
-    }
+    const {value, handleChange, handleSubmit} = props;
+
+    // function handleChange(e) {
+    //     const value = e.target.value;
+    //     setState({
+    //       ...state,
+    //       [e.target.name]: value
+    //     });
+    // }
     return (
         <div className='home'>
             <div className='home-text' >
@@ -28,34 +23,38 @@ export default function Home(props) {
                 <p>
                 Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
                 </p>
-                {/* <button>Get started today</button> */}
+                <Link to='/feed'>
+                <button >Get started today</button>
+                </Link>
             </div>
-            <form onSubmit={handleSubmit} className='home-form'>
+            <form onSubmit={handleSubmit} className='home-form' 
+                action='http://localhost:3001/api/v1/auth/signin'
+                method='post'>
                 <p>Signin</p>
-                <label for="uname">Email address</label>
+                <label htmlFor="email">Email address</label>
                 <br></br>
                 <input 
                     placeholder="username@email.com" 
-                    name="uname" 
+                    name="email" 
                     autoFocus
                     type="email"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
+                    value={value.email}
+                    onChange={handleChange}
                     required 
                 />
                 <br></br>
-                <label for="psw">Password</label>
+                <label htmlFor="password">Password</label>
                 <br></br>
                 <input 
                     type="password" 
                     placeholder="Enter Password" 
-                    name="psw"
-                    value={password}
-                    onChange={e => setPassword(e.target.value)}
+                    name="password"
+                    value={value.password}
+                    onChange={handleChange}
                     required 
                 />
-                <br></br>
-                <button type="submit">SIGNIN ></button>
+                {(value.err.lenght === '') ? <br></br> : <p className='error'>{value.err}</p>}
+                <button >start teamwork</button>
             </form>
             <footer>©2019 Greene Teamwork. All rights reserved.</footer>
         </div>
