@@ -6,10 +6,10 @@ import AllFeed from "./pages/AllFeed";
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
   // Link,
   // Redirect,
-  // useHistory,
+  useHistory,
   // useLocation
 } from "react-router-dom";
 import "./App.css";
@@ -30,10 +30,13 @@ export default class App extends Component {
       feed: {},
       token: '',
       isAuthenticated: false,
-      profile: {}
+      profile: {},
+        email: '',
+        password: '',
+        err: '',
     };
   }
-  handleChange = (e) => {
+  handleInputValue = (e) => {
     console.log(e.target.value);
     const value = e.target.value;
         this.setState({
@@ -48,8 +51,9 @@ export default class App extends Component {
       profile: valu
     });
   }
-  handleLogin(e) {
+  handleLogin = (e) => {
     e.preventDefault();
+    console.log(this.state.email);
     const user = {
       email: this.state.email,
       password: this.state.password
@@ -74,8 +78,12 @@ export default class App extends Component {
           return this.props.history.push("/");
         }
         console.log(res);
-        this.pageAuth(true, res.data);
-        this.props.history.push("/feed");
+        this.setState({
+          isAuthenticated: true,
+          profile: res.data
+        });
+        // let history = useHistory();
+        this.history.push("/feed");
       })
       .catch(error => console.log(error));
 
@@ -86,9 +94,12 @@ export default class App extends Component {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={Home} setAuth={this.pageAuth} />
-            {/* <Home/>
-          </Route> */}
+          <Route exact path="/">
+            <Home 
+            handleSubmit={this.handleLogin} 
+            handleChange={this.handleInputValue} 
+            value={this.state} />
+          </Route>
           <ProtectedRoute auth={this.state.isAuthenticated}>
             <AllFeed />
           </ProtectedRoute>
