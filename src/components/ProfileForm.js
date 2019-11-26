@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 
 export default function ProfileDisplay(props) {
-  const [state, setState] = React.useState({
+  const [state, setState] = useState({
     firstName: "",
     lastName: "",
     email: "",
     password: "",
+    gender: "",
+    jobRole: "",
+    department: "",
+    street: "",
+    area: "",
     toDashboard: false,
     // handleSubmit: this.handleSubmit.bind(this)
   })
@@ -22,7 +27,7 @@ export default function ProfileDisplay(props) {
   
     function handleSubmit(e) {
         e.preventDefault();
-        console.log()
+        console.log(state)
     }
     return (
       <>
@@ -34,11 +39,11 @@ export default function ProfileDisplay(props) {
         </div>
 
         <form onSubmit={handleSubmit} className="profile-form" disabled>
-          <label for="fname">
+          <label for="firstName">
             Firstname
             <input
               placeholder="Firstname"
-              name="fname"
+              name="firstName"
               autoFocus
               type="text"
               value={profile.firstName}
@@ -46,35 +51,35 @@ export default function ProfileDisplay(props) {
               required
             />
           </label>
-          <label for="lastname">
+          <label for="lastName">
             Lastname
             <input
               type="text"
               placeholder="Lastname"
-              name="lastname"
+              name="lastName"
               value={profile.lastName}
             //   onChange={e => setPassword(e.target.value)}
               required
             />
           </label>
-          <label for="uname">
+          <label for="email">
             Email address
             <input
               placeholder="username@email.com"
-              name="uname"
+              name="email"
               type="email"
               value={profile.email}
               // onChange={e => setEmail(e.target.value)}
               required
             />
           </label>
-          <label for="psw">
+          <label for="password">
             Password
             <input
               type="password"
               placeholder="xxxxxxxx"
-              name="psw"
-              // value={password}
+              name="password"
+              value={profile.password}
               // onChange={e => setPassword(e.target.value)}
               required
             />
@@ -90,22 +95,22 @@ export default function ProfileDisplay(props) {
               required
             />
           </label>
-          <label for="job">
+          <label for="jobRole">
             Job Role
             <input
               type="text"
               placeholder="Job Role"
-              name="job"
+              name="jobRole"
               value={profile.jobRole}
             //   onChange={e => setPassword(e.target.value)}
               required
             />
           </label>
-          <label for="dept">
+          <label for="department">
             Department
             <input
               placeholder="Department"
-              name="dept"
+              name="department"
               type="text"
               value={profile.department}
             //   onChange={e => setEmail(e.target.value)}

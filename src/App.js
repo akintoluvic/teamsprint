@@ -4,18 +4,14 @@ import Home from "./pages/Home";
 import AllFeed from "./pages/AllFeed";
 
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  // Link,
-  // Redirect,
-  useHistory,
-  // useLocation
+  withRouter,
 } from "react-router-dom";
 import "./App.css";
 
 
-export default class App extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,6 +34,7 @@ export default class App extends Component {
   }
   handleInputValue = (e) => {
     console.log(e.target.value);
+    console.log(this.props.history);
     const value = e.target.value;
         this.setState({
           // ...state,
@@ -83,7 +80,7 @@ export default class App extends Component {
           profile: res.data
         });
         // let history = useHistory();
-        this.history.push("/feed");
+        this.props.history.push("/feed");
       })
       .catch(error => console.log(error));
 
@@ -91,7 +88,6 @@ export default class App extends Component {
   }
   render() {
     return (
-    <Router>
       <div className="App">
         <Switch>
           <Route exact path="/">
@@ -100,27 +96,35 @@ export default class App extends Component {
             handleChange={this.handleInputValue} 
             value={this.state} />
           </Route>
-          <ProtectedRoute auth={this.state.isAuthenticated}>
+          <ProtectedRoute path='/feed' auth={this.state.isAuthenticated}>
             <AllFeed />
           </ProtectedRoute>
-          {/* <Route exact path="/feed" component={AllFeed} /> */}
+          <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/post' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/create-user' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/a-post' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
         </Switch>
-
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
       </div>
-    </Router>
   );
         }
 }
 
+export default withRouter(App);
+
 
 function ProtectedRoute(props) {
-  if (!props.auth) {
-    // props.history.push("/");
-    return <Route component={Home}/>
-  }
+  // if (!props.auth) {
+  //   // props.history.push("/");
+  //   return <Route component={Home}/>
+  // }
   return (
-    <Route component={AllFeed}/>
+    <>
+    {/* <Route component={AllFeed}/> */}
+    { !props.auth ? <Route component={Home}/> : <Route component={AllFeed}/> }
+    </>
   );
 }
 
