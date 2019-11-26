@@ -13,45 +13,8 @@ export default function Home(props) {
         err: '',
         
       })
-      const {setAuth} = props;
+      const {setAuth, handleSubmit} = props;
 
-      function handleSubmit(e) {
-        e.preventDefault();
-        const user = {
-            email: state.email,
-            password: state.password
-        };
-        const options = {
-            method: 'POST',
-            body: JSON.stringify(user),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        };
-        fetch('http://localhost:3001/api/v1/auth/signin', options)
-            .then(res => res.json())
-            .then(res => {
-                if(res.error) {
-                    console.log(res.error)
-                    setState({
-                        ...state,
-                        err: res.error
-                      });
-                      console.log(state.err);
-                    return props.history.push("/");
-                }
-                console.log(res)
-                console.log(setAuth);
-                
-                props.setAuth(true, res.data);
-                props.history.push("/feed");
-            })
-            .catch(error => console.log(error));
-
-        // props.userHasAuthenticated(true);
-        
-
-    }
     function handleChange(e) {
         const value = e.target.value;
         setState({
