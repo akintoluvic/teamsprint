@@ -49,6 +49,10 @@ export default class AllFeed extends Component {
   }
   handleChange = e => {
     console.log(e.target.value);
+    this.setState({
+          ...this.state,
+          [e.target.name]: e.target.value
+        });
   };
   render() {
     return (
