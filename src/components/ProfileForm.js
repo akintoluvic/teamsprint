@@ -23,6 +23,46 @@ export default function ProfileDisplay(props) {
   //   });
   // }
 
+  const handlePost = (e) => {
+    e.preventDefault();
+    const user = {
+      email: state.email,
+      password: state.password
+    };
+    const options = {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json"
+        
+      }
+    };
+    fetch("http://localhost:3001/api/v1/auth/signin", options)
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          console.log(res.error);
+          this.setState({
+            ...this.state,
+            err: res.error
+          });
+          console.log(this.state.err);
+          return this.props.history.push("/");
+        }
+        console.log(res);
+        this.setState({
+          isAuthenticated: true,
+          profile: res.data
+        });
+        // let history = useHistory();
+        this.props.history.push("/feed");
+      })
+      .catch(error => console.log(error));
+
+    // props.userHasAuthenticated(true);
+  }
+
+
   const { userProfile, button, profileChange } = props;
 
   function handleSubmit(e) {
@@ -141,7 +181,7 @@ export default function ProfileDisplay(props) {
         </label>
         <label for="submit">
           Submit
-          <button type="submit" name="submit">
+          <button type="submit" name="submit" onClick={handlePost}>
             {button}
           </button>
         </label>

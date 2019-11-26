@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
 import AllFeed from "./pages/AllFeed";
-
 import {
   Switch,
   Route,
@@ -10,19 +9,12 @@ import {
 } from "react-router-dom";
 import "./App.css";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // loading: true,
       // redirect: false,
-      // profile: {
-      //   userId: 1,
-      //   firstName: 'Lola', lastName: 'Loki', email: 'ase@we.co',
-      //   gender: 'male', jobRole: 'Bardy', department: 'Accounting',
-      //   street: '12, Adewou street', area: 'Were LAne, Ota, Ogun'
-      // },
       feed: {},
       token: '',
       isAuthenticated: false,
