@@ -32,7 +32,7 @@ export default class AllFeed extends Component {
         street: "12, Adewou street",
         area: "Were LAne, Ota, Ogun"
       },
-      feed: {},
+      feed: [],
       token: "",
       newUser: {
         firstName: "",
@@ -47,6 +47,37 @@ export default class AllFeed extends Component {
       }
     };
   }
+  getPosts = () => {
+    const token = sessionStorage.getItem('token')
+    const options = {
+      method: "GET",
+      // body: {JSON.stringify(user)},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    };
+    fetch("http://localhost:3001/api/v1/feed", options)
+      .then(res => res.json())
+      .then(res => {
+        if (res.error) {
+          // this.setState({
+          //   ...this.state,
+          //   err: res.error
+          // });
+          return console.log(res, token);
+        }
+        console.log(res.data);
+        return this.setState({
+          feed: res.data
+        });
+      })
+      .catch(error => console.log(error));
+  }
+  componentDidMount() {
+    this.getPosts();
+  }
+
   handleChange = e => {
     console.log(e.target.value);
     this.setState({
@@ -62,12 +93,15 @@ export default class AllFeed extends Component {
           <div className="sidebar">
             <SmallProfile />
             <SidebarTags />
-            <p>©2019 Greene Teamwork. All rights reserved.</p>
+            <p>©2019 Greene Teamwork. All rights reserved.
+            {/* {this.state.feed[0].article} */}
+            {this.state.profile.area}
+            </p>
           </div>
           <div className="main-feed">
             <Switch>
               <Route path="/feed">
-                <Feed />
+                <Feed feeds={this.state.feed}/>
               </Route>
               <Route path="/create-user">
                 <ProfileForm

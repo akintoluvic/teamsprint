@@ -25,8 +25,6 @@ class App extends Component {
     };
   }
   handleInputValue = (e) => {
-    console.log(e.target.value);
-    console.log(this.props.history);
     const value = e.target.value;
         this.setState({
           // ...state,
@@ -42,7 +40,6 @@ class App extends Component {
   }
   handleLogin = (e) => {
     e.preventDefault();
-    console.log(this.state.email);
     const user = {
       email: this.state.email,
       password: this.state.password
@@ -58,19 +55,20 @@ class App extends Component {
       .then(res => res.json())
       .then(res => {
         if (res.error) {
-          console.log(res.error);
           this.setState({
             ...this.state,
             err: res.error
           });
-          console.log(this.state.err);
           return this.props.history.push("/");
         }
         console.log(res);
         this.setState({
           isAuthenticated: true,
-          profile: res.data
+          profile: res.data,
+          token: res.token
         });
+        const token = `Bearer ${res.token} ${res.userId}`
+        sessionStorage.setItem('token', token);
         // let history = useHistory();
         this.props.history.push("/feed");
       })
@@ -108,14 +106,12 @@ export default withRouter(App);
 
 
 function ProtectedRoute(props) {
-  // if (!props.auth) {
-  //   // props.history.push("/");
-  //   return <Route component={Home}/>
-  // }
+  let token = sessionStorage.getItem('token');
   return (
     <>
-    {/* <Route component={AllFeed}/> */}
-    { !props.auth ? <Route component={Home}/> : <Route component={AllFeed}/> }
+    {/* return this.props.history.push("/"); */}
+    {/* { !props.auth ? <Route exact path='/' component={Home}/> : <Route component={AllFeed}/> } */}
+    { !token ? <Route exact path='/' component={Home}/> : <Route component={AllFeed}/> }
     </>
   );
 }
