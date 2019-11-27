@@ -47,7 +47,7 @@ export default class AllFeed extends Component {
       }
     };
   }
-  getPosts = () => {
+  getPosts = async () => {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
@@ -57,25 +57,36 @@ export default class AllFeed extends Component {
         "Authorization": token
       }
     };
-    fetch("http://localhost:3001/api/v1/feed", options)
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          // this.setState({
-          //   ...this.state,
-          //   err: res.error
-          // });
-          return console.log(res, token);
-        }
-        console.log(res.data);
-        return this.setState({
-          feed: res.data
-        });
-      })
-      .catch(error => console.log(error));
+    const response = await fetch("http://localhost:3001/api/v1/feed", options)
+    const feed = await response.json();
+    this.setState({
+              feed: feed.data
+            });
+    console.log(feed.data);
+    // await fetch("http://localhost:3001/api/v1/feed", options)
+    //   .then(res => res.json())
+    //   .then(res => {
+    //     if (res.error) {
+    //       // this.setState({
+    //       //   ...this.state,
+    //       //   err: res.error
+    //       // });
+    //       return console.log(res, token);
+    //     }
+    //     const feed = res.data;
+    //     this.setState({
+    //       feed
+    //     });
+    //     return feed
+    //     console.log(this.state.feed[0].article);
+    //   })
+      // .catch(error => console.log(error));
   }
   componentDidMount() {
-    this.getPosts();
+     this.getPosts();
+    //  this.setState({
+    //   feed
+    // });
   }
 
   handleChange = e => {
@@ -94,14 +105,14 @@ export default class AllFeed extends Component {
             <SmallProfile />
             <SidebarTags />
             <p>©2019 Greene Teamwork. All rights reserved.
-            {/* {this.state.feed[0].article} */}
+            {/* {this.state.feed[0].article}  */}
             {this.state.profile.area}
             </p>
           </div>
           <div className="main-feed">
             <Switch>
               <Route path="/feed">
-                <Feed feeds={this.state.feed}/>
+                <Feed myFeeds={this.state.feed}/>
               </Route>
               <Route path="/create-user">
                 <ProfileForm
