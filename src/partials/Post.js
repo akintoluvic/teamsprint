@@ -1,7 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Post() {
+    const [state, setState] = useState({
+        title: "",
+        article: "",
+        department: "",
+        tag: "",
+        done: ""
+      });
+    
+      const clear = {
+        title: "",
+        article: "",
+        department: "",
+        tag: ""
+      }
+      const handleChange = e => {
+        const value = e.target.value;
+        setState({
+          ...state,
+          [e.target.name]: value
+        });
+      }
+    
+    
+      const handlePost = async e => {
+        e.preventDefault();
+        const token = sessionStorage.getItem('token')
+        const options = {
+          method: "POST",
+          body: JSON.stringify(state),
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
+          }
+        };
+        const response = await fetch("http://localhost:3001/api/v1/auth/create-user", options)
+          .then(res => res.json())
+            if (response.error) {
+              console.log(response.error);
+              // return this.props.history.push("/");
+            }
+            console.log(response);
+            // let history = useHistory();
+            // this.props.history.push("/feed");
+            alert(`${response.data.message}`)
+            setState({ ...clear, done: response.data.message })
+      }
+    
+    
   return (
     <>
       <div className="each-feed post">
@@ -27,8 +75,8 @@ export default function Post() {
           name="title"
           autoFocus
           type="text"
-          // value={email}
-          // onChange={e => setEmail(e.target.value)}
+          value={state.title}
+          onChange={handleChange}
           required
         />
         <label for="article">Post Body*</label>
@@ -39,6 +87,8 @@ export default function Post() {
           rows="4"
           cols="50"
           placeholder="Write your comment here..."
+          value={state.article}
+          onChange={handleChange}
         ></textarea>
         <div>
           <label for="image">Upload Image</label>
@@ -52,11 +102,10 @@ export default function Post() {
               placeholder="Type tag here..."
               className="comment"
               name="tag"
-              autoFocus
               type="text"
-              // value={email}
-              // onChange={e => setEmail(e.target.value)}
-            />
+              value={state.tag}
+              onChange={handleChange}
+              />
           </div>
           <button className="btn">POST ARTICLE</button>
         </div>
