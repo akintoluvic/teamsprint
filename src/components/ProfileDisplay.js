@@ -19,7 +19,9 @@ export default function ProfileDisplay({userProfile, button}) {
         <div className="each-feed post">
           <div className="headers">
             <h2 className="title">Profile</h2>
-            <button className="btn"> Back to My feed</button>
+            <Link to='/feed'>
+              <button className="btn"> Back to My feed</button>
+          </Link>
           </div>
         </div>
 

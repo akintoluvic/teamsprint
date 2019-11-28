@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function CreateUser(props) {
   const [state, setState] = useState({
@@ -9,9 +10,9 @@ export default function CreateUser(props) {
     gender: "",
     jobRole: "",
     department: "",
-    address: ""
+    address: "",
+    done: ""
   });
-  const [done, setDone] = useState('')
 
   const clear = {
     firstName: "",
@@ -53,8 +54,7 @@ export default function CreateUser(props) {
         // let history = useHistory();
         // this.props.history.push("/feed");
         alert(`${response.data.message}`)
-        setDone({ done: response.data.message})
-        setState({ ...clear })
+        setState({ ...clear, done: response.data.message })
   }
 
 
@@ -69,10 +69,15 @@ export default function CreateUser(props) {
       <div className="each-feed post">
         <div className="headers">
           <h2 className="title">Profile</h2>
-          <button className="btn"> Back to My feed</button>
+          <Link to='/feed'>
+            <button className="btn"> Back to My feed</button>
+          </Link>
         </div>
       </div>
-
+      { (state.done === "") ? "" : 
+      <div className="each-feed post">
+        {state.done}
+      </div>}
       <form onSubmit={handlePost} className="profile-form" disabled>
         <label for="firstName">
           Firstname

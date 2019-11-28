@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom"
 
 export default function ProfileDisplay(props) {
   const [state, setState] = useState({
@@ -34,7 +35,9 @@ export default function ProfileDisplay(props) {
       <div className="each-feed post">
         <div className="headers">
           <h2 className="title">Profile</h2>
-          <button className="btn"> Back to My feed</button>
+          <Link to='/feed'>
+            <button className="btn"> Back to My feed</button>
+          </Link>
         </div>
       </div>
 
