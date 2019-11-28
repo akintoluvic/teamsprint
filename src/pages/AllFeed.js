@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
-import ProfileForm from "../components/ProfileForm";
+import ProfileForm from "../components/EditProfile";
 import ProfileDisplay from "../components/ProfileDisplay";
 import Feed from "../partials/Feed";
 import EachPost from "../partials/EachPost";
@@ -10,7 +10,7 @@ import Post from "../partials/Post";
 import {
   Switch,
   Route,
-  useParams,
+  // useParams,
   // useHistory,
   // useLocation
 } from "react-router-dom";
@@ -63,10 +63,28 @@ export default class AllFeed extends Component {
     this.setState({
               feed: feed.data
             });
-    console.log(feed.data);
+  }
+  getProfile = async () => {
+    const token = sessionStorage.getItem('token')
+    const options = {
+      method: "GET",
+      // body: {JSON.stringify(user)},
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": token
+      }
+    };
+    const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
+    const profile = await response.json();
+    if(profile.error) {console.log(profile.error)}
+    this.setState({
+      profile: profile.data
+    });
+    console.log(profile.error)
   }
   componentDidMount() {
      this.getPosts();
+     this.getProfile();
     //  this.setState({
     //   feed
     // });
@@ -80,7 +98,7 @@ export default class AllFeed extends Component {
         });
   };
   render() {
-    let { id } = useParams();
+    // let { id } = useParams();
     return (
       <div>
         <Navbar />
@@ -89,8 +107,6 @@ export default class AllFeed extends Component {
             <SmallProfile />
             <SidebarTags />
             <p>©2019 Greene Teamwork. All rights reserved.
-            {/* {this.state.feed[0].article}  */}
-            {this.state.profile.area}
             </p>
           </div>
           <div className="main-feed">
@@ -121,7 +137,6 @@ export default class AllFeed extends Component {
                 <EachPost />
               </Route> */}
               <Route path="/feed/:id" children={<EachPost />}/>
-                
 
               <Route component={Error} />
             </Switch>
