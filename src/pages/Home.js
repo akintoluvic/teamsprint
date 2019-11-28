@@ -28,8 +28,7 @@ export default function Home(props) {
                 </Link>
             </div>
             <form onSubmit={handleSubmit} className='home-form' 
-                action='http://localhost:3001/api/v1/auth/signin'
-                method='post'>
+                >
                 <p>Signin</p>
                 <label htmlFor="email">Email address</label>
                 <br></br>

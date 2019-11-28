@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
@@ -16,26 +16,10 @@ import {
   // useLocation
 } from "react-router-dom";
 
-export default class AllFeed extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      // loading: true,
-      // redirect: false,
-      profile: {
-        userId: 1,
-        firstName: "Lola",
-        lastName: "Loki",
-        email: "ase@we.co",
-        gender: "male",
-        jobRole: "Bardy",
-        department: "Accounting",
-        street: "12, Adewou street",
-        area: "Were LAne, Ota, Ogun"
-      },
-      feed: [],
-      token: "",
-      newUser: {
+export default function AllFeed(props)  {
+    const [profile, setProfile] = useState({})
+    const [feed, setFeed] = useState([])
+    const [newUser, setNewUser] = useState({
         firstName: "",
         lastName: "",
         email: "",
@@ -45,10 +29,8 @@ export default class AllFeed extends Component {
         department: "",
         street: "",
         area: ""
-      }
-    };
-  }
-  getPosts = async () => {
+      })
+  const getPosts = async () => {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
@@ -61,11 +43,11 @@ export default class AllFeed extends Component {
     const response = await fetch("http://localhost:3001/api/v1/feed", options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
-    this.setState({
+    setFeed({
               feed: feed.data
             });
   }
-  getProfile = async () => {
+  const getProfile = async () => {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
@@ -78,29 +60,30 @@ export default class AllFeed extends Component {
     const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
-    this.setState({
+    setProfile({
       profile: profile.data
     });
     console.log(profile.error)
   }
-  componentDidMount() {
-     this.getPosts();
-     this.getProfile();
+useEffect(() => {
+    getPosts();
+     getProfile();
+})
+    
     //  this.setState({
     //   feed
     // });
-  }
+//   }
 
-  handleChange = e => {
-    console.log(e.target.value, e.target.name);
-    const newValue = `[e.target.name]: e.target.value `
+  const handleChange = e => {
+    console.log(e.target.value);
+    const newValue = { [e.target.name]: e.target.value }
     this.setState({
           // [e.target.name]: e.target.value
           newUser: {...this.state.newUser, newValue }
           // [this.state.newUser{e.target.name}]: e.target.value
         });
   };
-  render() {
     // let { id } = useParams();
     return (
       <div>
@@ -115,26 +98,25 @@ export default class AllFeed extends Component {
           <div className="main-feed">
             <Switch>
               <Route path="/feed">
-                <Feed myFeeds={this.state.feed}/>
+                <Feed myFeeds={feed}/>
               </Route>
               <Route path="/create-user">
                 <CreateUser
-                  userProfile={this.state.newUser}
+                  userProfile={newUser}
                   button="CREATE USER"
-                  profileChange={this.handleChange}
+                //   profileChange={handleChange}
                 />
               </Route>
               <Route path="/profile">
                 <ProfileDisplay
-                  userProfile={this.state.profile}
+                  userProfile={profile}
                   button="EDIT PROFILE"
                 />
               </Route>
               <Route path="/edit-profile">
                 <EditProfile 
-                  userProfile={this.state.profile}
+                  userProfile={profile}
                   button="UPDATE PROFILE"
-                  profileChange={this.handleChange}
                 />
               </Route>
               <Route path="/post">
@@ -152,4 +134,3 @@ export default class AllFeed extends Component {
       </div>
     );
   }
-}

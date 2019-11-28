@@ -2,7 +2,6 @@ import React, { Component } from "react";
 // import AuthExample from './testPAge';
 import Home from "./pages/Home";
 import AllFeed from "./pages/AllFeed";
-
 import {
   Switch,
   Route,
@@ -10,19 +9,12 @@ import {
 } from "react-router-dom";
 import "./App.css";
 
-
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       // loading: true,
       // redirect: false,
-      // profile: {
-      //   userId: 1,
-      //   firstName: 'Lola', lastName: 'Loki', email: 'ase@we.co',
-      //   gender: 'male', jobRole: 'Bardy', department: 'Accounting',
-      //   street: '12, Adewou street', area: 'Were LAne, Ota, Ogun'
-      // },
       feed: {},
       token: '',
       isAuthenticated: false,
@@ -33,8 +25,6 @@ class App extends Component {
     };
   }
   handleInputValue = (e) => {
-    console.log(e.target.value);
-    console.log(this.props.history);
     const value = e.target.value;
         this.setState({
           // ...state,
@@ -48,9 +38,8 @@ class App extends Component {
       profile: valu
     });
   }
-  handleLogin = (e) => {
+  handleLogin = async (e) => {
     e.preventDefault();
-    console.log(this.state.email);
     const user = {
       email: this.state.email,
       password: this.state.password
@@ -62,29 +51,25 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     };
-    fetch("http://localhost:3001/api/v1/auth/signin", options)
+    const response = await fetch("http://localhost:3001/api/v1/auth/signin", options)
       .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          console.log(res.error);
+        if (response.error) {
           this.setState({
             ...this.state,
-            err: res.error
+            err: response.error
           });
-          console.log(this.state.err);
           return this.props.history.push("/");
         }
-        console.log(res);
         this.setState({
           isAuthenticated: true,
-          profile: res.data
+          profile: response.data,
+          token: response.token
         });
+        const token = `Bearer ${response.token} ${response.userId}`
+        sessionStorage.setItem('token', token);
+        sessionStorage.setItem('id', response.userId);
         // let history = useHistory();
         this.props.history.push("/feed");
-      })
-      .catch(error => console.log(error));
-
-    // props.userHasAuthenticated(true);
   }
   render() {
     return (
@@ -102,9 +87,9 @@ class App extends Component {
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/post' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/create-user' auth={this.state.isAuthenticated} />
-          <ProtectedRoute path='/a-post' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/feed/:id' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
-          <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/edit-profile' auth={this.state.isAuthenticated} />
         </Switch>
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
       </div>
@@ -116,14 +101,12 @@ export default withRouter(App);
 
 
 function ProtectedRoute(props) {
-  // if (!props.auth) {
-  //   // props.history.push("/");
-  //   return <Route component={Home}/>
-  // }
+  let token = sessionStorage.getItem('token');
   return (
     <>
-    {/* <Route component={AllFeed}/> */}
-    { !props.auth ? <Route component={Home}/> : <Route component={AllFeed}/> }
+    {/* return this.props.history.push("/"); */}
+    {/* { !props.auth ? <Route exact path='/' component={Home}/> : <Route component={AllFeed}/> } */}
+    { !token ? <Route exact path='/' component={Home}/> : <Route component={AllFeed}/> }
     </>
   );
 }

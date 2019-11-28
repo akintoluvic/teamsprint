@@ -1,21 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 
-export default function ProfileDisplay(props) {
+export default function ProfileDisplay({userProfile, button}) {
     // const [email, setEmail] = useState("");
     // const [password, setPassword] = useState("");
 
-    const {userProfile, button} = props;
+    // const {userProfile, button} = props;
   
     function handleSubmit(event) {
         event.preventDefault();
     }
+    // if(userProfile === undefined) {
+    //   return <div>Loading...</div>
+    // }
+    console.log(userProfile)
     return (
       <>
         <div className="each-feed post">
           <div className="headers">
             <h2 className="title">Profile</h2>
-            <button className="btn"> Back to My feed</button>
+            <Link to='/feed'>
+              <button className="btn"> Back to My feed</button>
+          </Link>
           </div>
         </div>
 
@@ -98,31 +104,31 @@ export default function ProfileDisplay(props) {
               disabled
             />
           </label>
-          <label for="street">
-            Street Address
+          <label for="address">
+            Address
             <input
               type="text"
               placeholder="17, Opposite Nadia Bread, Oka Road"
-              name="street"
-              value={userProfile.street}
+              name="address"
+              value={userProfile.address}
             //   onChange={e => setPassword(e.target.value)}
               disabled
             />
           </label>
           <label for="area">
-            Area/City and County
+            User Type
             <input
               placeholder="Ugbor Express Road, Benin, Nigeria"
               name="area"
               type="text"
-              value={userProfile.area}
+              value="Employee"
             //   onChange={e => setEmail(e.target.value)}
               disabled
             />
           </label>
           <label for="submit">Submit
             <Link to='/edit-profile'>
-              <button type="submit" name="submit" disabled>{button}</button>
+              <button type="submit" name="submit">{button}</button>
               </Link>
           </label>
           
