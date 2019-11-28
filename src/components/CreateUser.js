@@ -9,61 +9,56 @@ export default function CreateUser(props) {
     gender: "",
     jobRole: "",
     department: "",
-    street: "",
-    area: "",
-    toDashboard: false
-    // handleSubmit: this.handleSubmit.bind(this)
+    address: ""
   });
+  const [done, setDone] = useState('')
 
-  // function profileChange(e) {
-  //   const value = e.target.value;
-  //   setState({
-  //     ...state,
-  //     [e.target.name]: value
-  //   });
-  // }
+  const clear = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    gender: "",
+    jobRole: "",
+    department: "",
+    address: ""
+  }
 
-  const handlePost = (e) => {
+  const profileChange = e => {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value
+    });
+  }
+
+  const handlePost = async e => {
     e.preventDefault();
-    const user = {
-      email: state.email,
-      password: state.password
-    };
+    const token = sessionStorage.getItem('token')
     const options = {
       method: "POST",
-      body: JSON.stringify(user),
+      body: JSON.stringify(state),
       headers: {
-        "Content-Type": "application/json"
-        
+        "Content-Type": "application/json",
+        "Authorization": token
       }
     };
-    fetch("http://localhost:3001/api/v1/auth/signin", options)
+    const response = await fetch("http://localhost:3001/api/v1/auth/create-user", options)
       .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          console.log(res.error);
-          this.setState({
-            ...this.state,
-            err: res.error
-          });
-          console.log(this.state.err);
-          return this.props.history.push("/");
+        if (response.error) {
+          console.log(response.error);
+          // return this.props.history.push("/");
         }
-        console.log(res);
-        this.setState({
-          isAuthenticated: true,
-          profile: res.data
-        });
+        console.log(response);
         // let history = useHistory();
-        this.props.history.push("/feed");
-      })
-      .catch(error => console.log(error));
-
-    // props.userHasAuthenticated(true);
+        // this.props.history.push("/feed");
+        alert(`${response.data.message}`)
+        setDone({ done: response.data.message})
+        setState({ ...clear })
   }
 
 
-  const { userProfile, button, profileChange } = props;
+  const { button } = props;
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -78,7 +73,7 @@ export default function CreateUser(props) {
         </div>
       </div>
 
-      <form onSubmit={handleSubmit} className="profile-form" disabled>
+      <form onSubmit={handlePost} className="profile-form" disabled>
         <label for="firstName">
           Firstname
           <input
@@ -86,7 +81,7 @@ export default function CreateUser(props) {
             name="firstName"
             autoFocus
             type="text"
-            value={userProfile.firstName}
+            value={state.firstName}
             onChange={profileChange}
             required
           />
@@ -97,7 +92,7 @@ export default function CreateUser(props) {
             type="text"
             placeholder="Lastname"
             name="lastName"
-            value={userProfile.lastName}
+            value={state.lastName}
             onChange={profileChange}
             required
           />
@@ -108,7 +103,7 @@ export default function CreateUser(props) {
             placeholder="username@email.com"
             name="email"
             type="email"
-            value={userProfile.email}
+            value={state.email}
             onChange={profileChange}
             required
           />
@@ -119,7 +114,7 @@ export default function CreateUser(props) {
             type="password"
             placeholder="xxxxxxxx"
             name="password"
-            value={userProfile.password}
+            value={state.password}
             onChange={profileChange}
             required
           />
@@ -130,7 +125,7 @@ export default function CreateUser(props) {
             placeholder="Gender"
             name="gender"
             type="text"
-            value={userProfile.gender}
+            value={state.gender}
             onChange={profileChange}
             required
           />
@@ -141,7 +136,7 @@ export default function CreateUser(props) {
             type="text"
             placeholder="Job Role"
             name="jobRole"
-            value={userProfile.jobRole}
+            value={state.jobRole}
             onChange={profileChange}
             required
           />
@@ -152,31 +147,31 @@ export default function CreateUser(props) {
             placeholder="Department"
             name="department"
             type="text"
-            value={userProfile.department}
+            value={state.department}
             onChange={profileChange}
             required
           />
         </label>
-        <label for="street">
-          Street Address
+        <label for="address">
+          Address
           <input
             type="text"
             placeholder="17, Opposite Nadia Bread, Oka Road"
-            name="street"
-            value={userProfile.street}
+            name="address"
+            value={state.address}
             onChange={profileChange}
             required
           />
         </label>
         <label for="area">
-          Area/City and County
+          User Type
           <input
             placeholder="Ugbor Express Road, Benin, Nigeria"
             name="area"
             type="text"
-            value={userProfile.area}
-            onChange={profileChange}
-            required
+            value="Employee"
+            // onChange={profileChange}
+            disabled
           />
         </label>
         <label for="submit">

@@ -38,7 +38,7 @@ class App extends Component {
       profile: valu
     });
   }
-  handleLogin = (e) => {
+  handleLogin = async (e) => {
     e.preventDefault();
     const user = {
       email: this.state.email,
@@ -51,30 +51,25 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     };
-    fetch("http://localhost:3001/api/v1/auth/signin", options)
+    const response = await fetch("http://localhost:3001/api/v1/auth/signin", options)
       .then(res => res.json())
-      .then(res => {
-        if (res.error) {
+        if (response.error) {
           this.setState({
             ...this.state,
-            err: res.error
+            err: response.error
           });
           return this.props.history.push("/");
         }
-        console.log(res);
         this.setState({
           isAuthenticated: true,
-          profile: res.data,
-          token: res.token
+          profile: response.data,
+          token: response.token
         });
-        const token = `Bearer ${res.token} ${res.userId}`
+        const token = `Bearer ${response.token} ${response.userId}`
         sessionStorage.setItem('token', token);
+        sessionStorage.setItem('id', response.userId);
         // let history = useHistory();
         this.props.history.push("/feed");
-      })
-      .catch(error => console.log(error));
-
-    // props.userHasAuthenticated(true);
   }
   render() {
     return (

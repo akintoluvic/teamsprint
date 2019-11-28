@@ -23,46 +23,6 @@ export default function ProfileDisplay(props) {
   //   });
   // }
 
-  const handlePost = (e) => {
-    e.preventDefault();
-    const user = {
-      email: state.email,
-      password: state.password
-    };
-    const options = {
-      method: "POST",
-      body: JSON.stringify(user),
-      headers: {
-        "Content-Type": "application/json"
-        
-      }
-    };
-    fetch("http://localhost:3001/api/v1/auth/signin", options)
-      .then(res => res.json())
-      .then(res => {
-        if (res.error) {
-          console.log(res.error);
-          this.setState({
-            ...this.state,
-            err: res.error
-          });
-          console.log(this.state.err);
-          return this.props.history.push("/");
-        }
-        console.log(res);
-        this.setState({
-          isAuthenticated: true,
-          profile: res.data
-        });
-        // let history = useHistory();
-        this.props.history.push("/feed");
-      })
-      .catch(error => console.log(error));
-
-    // props.userHasAuthenticated(true);
-  }
-
-
   const { userProfile, button, profileChange } = props;
 
   function handleSubmit(e) {
@@ -157,31 +117,31 @@ export default function ProfileDisplay(props) {
             required
           />
         </label>
-        <label for="street">
-          Street Address
+        <label for="address">
+          Address
           <input
             type="text"
             placeholder="17, Opposite Nadia Bread, Oka Road"
-            name="street"
-            value={userProfile.street}
+            name="address"
+            value={userProfile.address}
             onChange={profileChange}
             required
           />
         </label>
         <label for="area">
-          Area/City and County
+          User Type
           <input
             placeholder="Ugbor Express Road, Benin, Nigeria"
             name="area"
             type="text"
-            value={userProfile.area}
-            onChange={profileChange}
-            required
+            value="Employee"
+            // onChange={profileChange}
+            disabled
           />
         </label>
         <label for="submit">
           Submit
-          <button type="submit" name="submit" onClick={handlePost}>
+          <button type="submit" name="submit">
             {button}
           </button>
         </label>
