@@ -92,7 +92,7 @@ class App extends Component {
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/post' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/create-user' auth={this.state.isAuthenticated} />
-          <ProtectedRoute path='/a-post' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/feed/:slug' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
         </Switch>

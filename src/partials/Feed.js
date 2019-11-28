@@ -11,19 +11,13 @@ export default function Feed(props) {
     }
     return (
       <>
-        {/* <div>{feeds[0].article}</div> */}
         <Article />
         <Image />
-        {/* {feeds.image ? <Article /> : <Image />} */}
-        {/* { myFeeds.map(feed => { return <Image />}) } */}
         { myFeeds.map(feed => { 
-            if (feed.imageurl === null) return <Article key={feed.postid}/>
-            else {return <Image key={feed.postid} />} 
+            if (feed.imageurl === null) 
+            return <Article key={feed.postid} tfeed={feed}/>
+            else {return <Image key={feed.postid}  tfeed={feed} />} 
             }) }
-        {/* {
-            if (feed.image !== null) return <Article />
-            return <Image />
-        })} */}
       </>
     );
 }

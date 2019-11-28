@@ -59,28 +59,11 @@ export default class AllFeed extends Component {
     };
     const response = await fetch("http://localhost:3001/api/v1/feed", options)
     const feed = await response.json();
+    if(feed.error) {console.log(feed.error)}
     this.setState({
               feed: feed.data
             });
     console.log(feed.data);
-    // await fetch("http://localhost:3001/api/v1/feed", options)
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     if (res.error) {
-    //       // this.setState({
-    //       //   ...this.state,
-    //       //   err: res.error
-    //       // });
-    //       return console.log(res, token);
-    //     }
-    //     const feed = res.data;
-    //     this.setState({
-    //       feed
-    //     });
-    //     return feed
-    //     console.log(this.state.feed[0].article);
-    //   })
-      // .catch(error => console.log(error));
   }
   componentDidMount() {
      this.getPosts();
@@ -133,7 +116,7 @@ export default class AllFeed extends Component {
               <Route path="/post">
                 <Post />
               </Route>
-              <Route path="/a-post">
+              <Route path="/feed/:slug">
                 <EachPost />
               </Route>
               <Route component={Error} />
