@@ -94,7 +94,7 @@ class App extends Component {
           <ProtectedRoute path='/create-user' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/feed/:id' auth={this.state.isAuthenticated} />
           <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
-          <ProtectedRoute path='/profile' auth={this.state.isAuthenticated} />
+          <ProtectedRoute path='/edit-profile' auth={this.state.isAuthenticated} />
         </Switch>
         {/* { isUserAuthenticated() ? props.children : <Redirect to={routes.login} /> } */}
       </div>

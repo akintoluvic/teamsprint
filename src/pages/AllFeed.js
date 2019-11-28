@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
-import ProfileForm from "../components/EditProfile";
+import EditProfile from "../components/EditProfile";
 import ProfileDisplay from "../components/ProfileDisplay";
+import CreateUser from "../components/CreateUser";
 import Feed from "../partials/Feed";
 import EachPost from "../partials/EachPost";
 import Post from "../partials/Post";
@@ -92,9 +93,11 @@ export default class AllFeed extends Component {
 
   handleChange = e => {
     console.log(e.target.value);
+    const newValue = { [e.target.name]: e.target.value }
     this.setState({
-          ...this.state,
-          [e.target.name]: e.target.value
+          // [e.target.name]: e.target.value
+          newUser: {...this.state.newUser, newValue }
+          // [this.state.newUser{e.target.name}]: e.target.value
         });
   };
   render() {
@@ -115,7 +118,7 @@ export default class AllFeed extends Component {
                 <Feed myFeeds={this.state.feed}/>
               </Route>
               <Route path="/create-user">
-                <ProfileForm
+                <CreateUser
                   userProfile={this.state.newUser}
                   button="CREATE USER"
                   profileChange={this.handleChange}
@@ -128,7 +131,10 @@ export default class AllFeed extends Component {
                 />
               </Route>
               <Route path="/edit-profile">
-                <ProfileForm />
+                <EditProfile 
+                  userProfile={this.state.profile}
+                  button="UPDATE PROFILE"
+                />
               </Route>
               <Route path="/post">
                 <Post />

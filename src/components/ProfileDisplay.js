@@ -122,7 +122,7 @@ export default function ProfileDisplay(props) {
           </label>
           <label for="submit">Submit
             <Link to='/edit-profile'>
-              <button type="submit" name="submit" disabled>{button}</button>
+              <button type="submit" name="submit">{button}</button>
               </Link>
           </label>
           

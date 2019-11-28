@@ -110,7 +110,7 @@ export default function ProfileDisplay(props) {
             type="email"
             value={userProfile.email}
             onChange={profileChange}
-            required
+            disabled
           />
         </label>
         <label for="password">
@@ -121,7 +121,7 @@ export default function ProfileDisplay(props) {
             name="password"
             value={userProfile.password}
             onChange={profileChange}
-            required
+            disabled
           />
         </label>
         <label for="gender">
