@@ -9,8 +9,8 @@ import EachPost from "../partials/EachPost";
 import Post from "../partials/Post";
 import {
   Switch,
-  Route
-  // Redirect,
+  Route,
+  useParams,
   // useHistory,
   // useLocation
 } from "react-router-dom";
@@ -80,6 +80,7 @@ export default class AllFeed extends Component {
         });
   };
   render() {
+    let { id } = useParams();
     return (
       <div>
         <Navbar />
@@ -116,9 +117,12 @@ export default class AllFeed extends Component {
               <Route path="/post">
                 <Post />
               </Route>
-              <Route path="/feed/:slug">
+              {/* <Route path="/feed/:id">
                 <EachPost />
-              </Route>
+              </Route> */}
+              <Route path="/feed/:id" children={<EachPost />}/>
+                
+
               <Route component={Error} />
             </Switch>
           </div>

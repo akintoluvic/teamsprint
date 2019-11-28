@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 export default function Article(props) {
     const { tfeed } = props
@@ -19,7 +20,9 @@ export default function Article(props) {
             </p>
             <div className='footer'>
                 <button className='btn'>{tfeed.tag}</button>
-                <button className='btn'>VIEW full POST and COMMENTS</button>
+                <Link to={`/feed/${tfeed.postid}`} className='link'>
+                    <button className='btn'>VIEW full POST and COMMENTS</button>
+                </Link>
             </div>
         </div>
     )

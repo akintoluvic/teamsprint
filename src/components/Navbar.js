@@ -16,7 +16,7 @@ export default function Navbar() {
                     <Link to="/public" className='link'>tags</Link>
                     <Link to="/post" className='link'>create-post</Link>
                     <Link to="/create-user" className='link'>create-user</Link>
-                    <Link to="/a-post" className='link'>single post</Link>
+                    {/* <Link to={`/feed/${slug}`} className='link'>single post</Link> */}
                     <Link to="/" onClick={() => sessionStorage.clear()} className='link'>Logout</Link>
                     <button className='user'>
                         AS
