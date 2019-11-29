@@ -43,21 +43,24 @@ export default function Post() {
 
         const options = {
           method: "POST",
-          body: JSON.stringify(formData),
+          body: JSON.stringify(state),
+          files: state.dataFile,
           headers: {
             "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
             // boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s
             "Authorization": token
           }
         };
-        const response = await fetch("http://localhost:3001/api/v1/gifs", options)
+        await fetch("http://localhost:3001/api/v1/gifs", options)
           .then(res => res.json())
-          .catch(error => console.log(error));
-             if (response.error) {
-              console.log(response.error);
+          .then(res => {
+            if (res.error) {
+              console.log(res.error);
               // return this.props.history.push("/");
             }
-            console.log(response);
+            console.log(res);
+          })
+          .catch(error => console.log(error));
       }
 
       const handlePostA = async e => {
@@ -138,10 +141,12 @@ export default function Post() {
         </div>
       </div>
 
-      <form  action="/" enctype="multipart/form-data"  method="POST" Authorization={token}>
+      <form  action="http://localhost:3001/api/v1/gifs" enctype="multipart/form-data"  method="POST" Authorization={token}>
         <div class="form-group"> Data or Responses file
           <input class="form-control" name="dataFile" type="file" />
+          <input type="submit"/>
         </div>
+        
       </form>
 
       <div className="each-feed post">

@@ -96,7 +96,7 @@ export default class AllFeed extends Component {
     const newValue = `[e.target.name]: e.target.value `
     this.setState({
           // [e.target.name]: e.target.value
-          newUser: {...this.state.newUser, newValue }
+          newUser: {...this.state.profile, newValue }
           // [this.state.newUser{e.target.name}]: e.target.value
         });
   };
@@ -121,7 +121,6 @@ export default class AllFeed extends Component {
                 <CreateUser
                   userProfile={this.state.newUser}
                   button="CREATE USER"
-                  profileChange={this.handleChange}
                 />
               </Route>
               <Route path="/profile">
@@ -135,6 +134,7 @@ export default class AllFeed extends Component {
                   userProfile={this.state.profile}
                   button="UPDATE PROFILE"
                   profileChange={this.handleChange}
+                  updateProfile={this.getProfile}
                 />
               </Route>
               <Route path="/post">
