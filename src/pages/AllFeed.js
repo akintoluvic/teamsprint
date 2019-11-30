@@ -143,7 +143,7 @@ export default class AllFeed extends Component {
               {/* <Route path="/feed/:id">
                 <EachPost />
               </Route> */}
-              <Route path="/feed/:id" children={<EachPost />}/>
+              <Route path="/feed/:id" component={<EachPost />}/>
 
               <Route component={Error} />
             </Switch>
