@@ -68,7 +68,7 @@ export default function CreateUser(props) {
     <>
       <div className="each-feed post">
         <div className="headers">
-          <h2 className="title">Profile</h2>
+          <h2 className="title">Create User</h2>
           <Link to='/feed'>
             <button className="btn"> Back to My feed</button>
           </Link>
