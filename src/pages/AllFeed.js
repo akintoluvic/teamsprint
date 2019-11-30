@@ -114,22 +114,22 @@ export default class AllFeed extends Component {
           </div>
           <div className="main-feed">
             <Switch>
-              <Route path="/feed">
+              <Route exact path="/feed">
                 <Feed myFeeds={this.state.feed}/>
               </Route>
-              <Route path="/create-user">
+              <Route exact path="/create-user">
                 <CreateUser
                   userProfile={this.state.newUser}
                   button="CREATE USER"
                 />
               </Route>
-              <Route path="/profile">
+              <Route exact path="/profile">
                 <ProfileDisplay
                   userProfile={this.state.profile}
                   button="EDIT PROFILE"
                 />
               </Route>
-              <Route path="/edit-profile">
+              <Route exact path="/edit-profile">
                 <EditProfile 
                   userProfile={this.state.profile}
                   button="UPDATE PROFILE"
@@ -137,13 +137,13 @@ export default class AllFeed extends Component {
                   updateProfile={this.getProfile}
                 />
               </Route>
-              <Route path="/post">
+              <Route exact path="/post">
                 <Post />
               </Route>
-              {/* <Route path="/feed/:id">
+              <Route path="/feed/:id">
                 <EachPost />
-              </Route> */}
-              <Route path="/feed/:id" component={<EachPost />}/>
+              </Route>
+              {/* <Route path="/feed/:id" component={<EachPost />}/> */}
 
               <Route component={Error} />
             </Switch>
