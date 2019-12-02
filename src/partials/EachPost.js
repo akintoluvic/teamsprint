@@ -1,5 +1,6 @@
 import React from "react";
 import Article from "../components/Article";
+import Image from "../components/Image";
 import Comment from "../components/Comment";
 import AllComment from "../components/AllComment";
 import { useParams } from "react-router-dom";
@@ -10,7 +11,7 @@ export default function EachPost(props) {
   const { myFeeds } = props;
   const feed =  myFeeds.filter(async myFeed =>  await myFeed.postid === id);
   console.log(feed);
-  console.log(id);
+  console.log(myFeeds);
   
   const getProfile = async () => {
     const token = sessionStorage.getItem('token')
@@ -33,11 +34,15 @@ export default function EachPost(props) {
   // componentDidMount() {
 
   // }
+  if(feed === []) {
+    return <div>Loading...</div>
+}
 
   return (
     <div>
-      <Article />
-      {id}
+      {(feed.imageurl === null) ? <Article key={feed.postid} tfeed={feed}/>:
+      <Image key={feed.postid}  tfeed={feed} />} 
+
       <Comment />
       <AllComment />
     </div>
