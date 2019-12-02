@@ -17,12 +17,11 @@ export default function EditProfile(props) {
   });
   const { userProfile, button, updateProfile } = props;
 
-  const componentDidMount = () => {
-    setState({
-      ...userProfile
-    });
-  }
-  // componentDidMount()
+  // const componentDidMount = () => {
+  //   setState({
+  //     ...userProfile
+  //   });
+  // }
   function profileChange(e) {
     const value = e.target.value;
     setState({

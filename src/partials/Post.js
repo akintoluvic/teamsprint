@@ -10,12 +10,12 @@ export default function Post() {
         done: ""
       });
     
-      const clear = {
-        title: "",
-        article: "",
-        department: "",
-        tag: ""
-      }
+      // const clear = {
+      //   title: "",
+      //   article: "",
+      //   department: "",
+      //   tag: ""
+      // }
       const handleChange = e => {
         const value = e.target.value;
         setState({

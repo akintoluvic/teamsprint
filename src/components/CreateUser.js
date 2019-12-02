@@ -60,10 +60,6 @@ export default function CreateUser(props) {
 
   const { button } = props;
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(state);
-  }
   return (
     <>
       <div className="each-feed post">

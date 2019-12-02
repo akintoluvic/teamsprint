@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import sampleImage from '../images/sample-image.png';
+// import sampleImage from '../images/sample-image.png';
 
 export default function Article(props) {
     const { tfeed } = props

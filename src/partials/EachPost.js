@@ -34,7 +34,7 @@ export default function EachPost(props) {
   // componentDidMount() {
 
   // }
-  if(feed === []) {
+  if(feed.lenght === 0) {
     return <div>Loading...</div>
 }
 
