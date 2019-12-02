@@ -139,20 +139,21 @@
   flex-direction: column;
   width: 330px;
   /* flex-grow: 1; */
-  /* height: 100vh; */
-  /* overflow-y: hidden; */
-  /* scrollb */
+  /* height: 100vh; 
+  position: fixed;
+  overflow-y: scroll; */
 }
 .sidebar p {
   font-size: 14px;
   text-align: center;
 }
-
 .main-feed {
   display: flex;
   flex-direction: column;
   width: 685px;
   margin-left: 30px;
+  /* height: 100vh; 
+  overflow-y: scroll; */
 }
 /* .main-feed :last-child() {
   margin-bottom: 50px;

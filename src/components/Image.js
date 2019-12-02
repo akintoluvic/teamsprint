@@ -1,5 +1,6 @@
 import React from 'react';
-import sampleImage from '../images/sample-image.png';
+import { Link } from "react-router-dom";
+// import sampleImage from '../images/sample-image.png';
 
 export default function Article(props) {
     const { tfeed } = props
@@ -18,7 +19,9 @@ export default function Article(props) {
             <img className='image' src={tfeed.imageurl} alt='feed title'/>
             <div className='footer'>
                 <button className='btn'>{tfeed.tag}</button>
-                <button className='btn'>VIEW full POST and COMMENTS</button>
+                <Link to={`/feed/${tfeed.postid}`} className='link'>
+                    <button className='btn'>VIEW full POST and COMMENTS</button>
+                </Link>
             </div>
         </div>
     )

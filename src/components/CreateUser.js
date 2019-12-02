@@ -41,7 +41,8 @@ export default function CreateUser(props) {
       body: JSON.stringify(state),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        "crossorigin": "anonymous"
       }
     };
     const response = await fetch("http://localhost:3001/api/v1/auth/create-user", options)
@@ -60,15 +61,11 @@ export default function CreateUser(props) {
 
   const { button } = props;
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    console.log(state);
-  }
   return (
     <>
       <div className="each-feed post">
         <div className="headers">
-          <h2 className="title">Profile</h2>
+          <h2 className="title">Create User</h2>
           <Link to='/feed'>
             <button className="btn"> Back to My feed</button>
           </Link>

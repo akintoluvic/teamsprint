@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom"
 
-export default function ProfileDisplay(props) {
+export default function EditProfile(props) {
   const [state, setState] = useState({
     firstName: "",
     lastName: "",
@@ -15,16 +15,21 @@ export default function ProfileDisplay(props) {
     toDashboard: false
     // handleSubmit: this.handleSubmit.bind(this)
   });
+  const { userProfile, button, updateProfile } = props;
 
-  // function profileChange(e) {
-  //   const value = e.target.value;
+  // const componentDidMount = () => {
   //   setState({
-  //     ...state,
-  //     [e.target.name]: value
+  //     ...userProfile
   //   });
   // }
+  function profileChange(e) {
+    const value = e.target.value;
+    setState({
+      ...state,
+      [e.target.name]: value
+    });
+  }
 
-  const { userProfile, button, profileChange } = props;
 
   function handleSubmit(e) {
     e.preventDefault();

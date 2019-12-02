@@ -34,54 +34,45 @@ export default class AllFeed extends Component {
         area: "Were LAne, Ota, Ogun"
       },
       feed: [],
-      token: "",
-      newUser: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        gender: "",
-        jobRole: "",
-        department: "",
-        street: "",
-        area: ""
-      }
     };
   }
   getPosts = async () => {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
-      // body: {JSON.stringify(user)},
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch("http://localhost:3001/api/v1/feed", options)
+    const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/feed", options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
               feed: feed.data
             });
+    console.log(feed.data)
   }
   getProfile = async () => {
     const token = sessionStorage.getItem('token')
+    const id = sessionStorage.getItem('id')
     const options = {
       method: "GET",
-      // body: {JSON.stringify(user)},
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
+    const response = await fetch(`https://workplace-teamwork.herokuapp.com/api/v1/auth/profile/${id}`, options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
     this.setState({
       profile: profile.data
     });
-    console.log(profile.error)
+    console.log(profile.data)
+
   }
   componentDidMount() {
      this.getPosts();
@@ -96,7 +87,7 @@ export default class AllFeed extends Component {
     const newValue = `[e.target.name]: e.target.value `
     this.setState({
           // [e.target.name]: e.target.value
-          newUser: {...this.state.newUser, newValue }
+          newUser: {...this.state.profile, newValue }
           // [this.state.newUser{e.target.name}]: e.target.value
         });
   };
@@ -114,36 +105,35 @@ export default class AllFeed extends Component {
           </div>
           <div className="main-feed">
             <Switch>
-              <Route path="/feed">
+              <Route exact path="/feed">
                 <Feed myFeeds={this.state.feed}/>
               </Route>
-              <Route path="/create-user">
+              <Route exact path="/create-user">
                 <CreateUser
-                  userProfile={this.state.newUser}
                   button="CREATE USER"
-                  profileChange={this.handleChange}
                 />
               </Route>
-              <Route path="/profile">
+              <Route exact path="/profile">
                 <ProfileDisplay
                   userProfile={this.state.profile}
                   button="EDIT PROFILE"
                 />
               </Route>
-              <Route path="/edit-profile">
+              <Route exact path="/edit-profile">
                 <EditProfile 
                   userProfile={this.state.profile}
                   button="UPDATE PROFILE"
                   profileChange={this.handleChange}
+                  updateProfile={this.getProfile}
                 />
               </Route>
-              <Route path="/post">
+              <Route exact path="/post">
                 <Post />
               </Route>
-              {/* <Route path="/feed/:id">
-                <EachPost />
-              </Route> */}
-              <Route path="/feed/:id" children={<EachPost />}/>
+              <Route path="/feed/:id">
+                <EachPost myFeeds={this.state.feed}/>
+              </Route>
+              {/* <Route path="/feed/:id" component={<EachPost />}/> */}
 
               <Route component={Error} />
             </Switch>
