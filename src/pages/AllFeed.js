@@ -49,8 +49,9 @@ export default class AllFeed extends Component {
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
-              feed: feed.data
+              feed: feed.data.posts
             });
+    console.log(feed.data)
   }
   getProfile = async () => {
     const token = sessionStorage.getItem('token')

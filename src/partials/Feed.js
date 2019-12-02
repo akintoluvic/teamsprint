@@ -11,7 +11,6 @@ export default function Feed(props) {
     }
     return (
       <>
-      <div>Confu...</div>
         { myFeeds.map(feed => { 
             if (feed.imageurl === null) 
             return <Article key={feed.postid} tfeed={feed}/>

@@ -7,7 +7,8 @@ export default function Post() {
         article: "",
         dataFile: null,
         tag: "",
-        done: ""
+        done: "",
+        authorId: ""
       });
     
       // const clear = {
@@ -26,15 +27,18 @@ export default function Post() {
       const handleFile = e => {
         // e.preventDefault();
         console.log(e.target.files[0])
+        const id = sessionStorage.getItem('id')
         setState({
           ...state,
-          dataFile: e.target.files[0]
+          dataFile: e.target.files[0],
+          authorId: id
         });
       }
     
       const token = sessionStorage.getItem('token')
       const handlePost = async e => {
         // e.preventDefault();
+        
         const formData = new FormData();
         formData.append("title", state.title);
         formData.append("dataFile", state.dataFile);
