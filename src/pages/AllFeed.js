@@ -34,18 +34,6 @@ export default class AllFeed extends Component {
         area: "Were LAne, Ota, Ogun"
       },
       feed: [],
-      token: "",
-      newUser: {
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-        gender: "",
-        jobRole: "",
-        department: "",
-        street: "",
-        area: ""
-      }
     };
   }
   getPosts = async () => {
@@ -69,7 +57,6 @@ export default class AllFeed extends Component {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
-      // body: {JSON.stringify(user)},
       headers: {
         "Content-Type": "application/json",
         "Authorization": token
@@ -119,7 +106,6 @@ export default class AllFeed extends Component {
               </Route>
               <Route exact path="/create-user">
                 <CreateUser
-                  userProfile={this.state.newUser}
                   button="CREATE USER"
                 />
               </Route>
@@ -141,7 +127,7 @@ export default class AllFeed extends Component {
                 <Post />
               </Route>
               <Route path="/feed/:id">
-                <EachPost />
+                <EachPost myFeeds={this.state.feed}/>
               </Route>
               {/* <Route path="/feed/:id" component={<EachPost />}/> */}
 

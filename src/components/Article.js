@@ -6,6 +6,7 @@ export default function Article(props) {
     if(tfeed === undefined) {
         return <div>Loading...</div>
     }
+    console.log(tfeed.createdon)
     return (
         <div className='each-feed'>
             <div className='headers'>
