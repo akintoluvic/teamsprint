@@ -14,7 +14,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage" : "http://myname.github.io/myapp",
+  "homepage": "http://akintoluvic.github.io/devnest",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -29,5 +29,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   }
 }
