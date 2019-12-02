@@ -40,13 +40,12 @@ export default class AllFeed extends Component {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
-      // body: {JSON.stringify(user)},
       headers: {
         "Content-Type": "application/json",
         "Authorization": token
       }
     };
-    const response = await fetch("http://localhost:3001/api/v1/feed", options)
+    const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/feed", options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
@@ -68,7 +67,6 @@ export default class AllFeed extends Component {
     this.setState({
       profile: profile.data
     });
-    console.log(profile.error)
   }
   componentDidMount() {
      this.getPosts();

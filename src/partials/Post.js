@@ -51,7 +51,7 @@ export default function Post() {
             "Authorization": token
           }
         };
-        await fetch("http://localhost:3001/api/v1/gifs", options)
+        await fetch("https://workplace-teamwork.herokuapp.com/api/v1/gifs", options)
           .then(res => res.json())
           .then(res => {
             if (res.error) {
@@ -73,7 +73,7 @@ export default function Post() {
             "Authorization": token
           }
         };
-        const response = await fetch("http://localhost:3001/api/v1/articles", options)
+        const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/articles", options)
           .then(res => res.json())
           .catch(error => console.log(error));
              if (response.error) {
