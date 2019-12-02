@@ -27,14 +27,12 @@ export default function Post() {
       const handleFile = e => {
         // e.preventDefault();
         console.log(e.target.files[0])
-        const id = sessionStorage.getItem('id')
         setState({
           ...state,
           dataFile: e.target.files[0],
-          authorId: id
         });
       }
-    
+      const id = sessionStorage.getItem('id')
       const token = sessionStorage.getItem('token')
       const handlePost = async e => {
         // e.preventDefault();
@@ -68,24 +66,25 @@ export default function Post() {
       }
 
       const handlePostA = async e => {
-        // e.preventDefault();
+        const data = {id, ...state}
         const options = {
           method: "POST",
-          body: JSON.stringify(state),
+          body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
             "Authorization": token
+            // "crossorigin": "anonymous"
           }
         };
         const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/articles", options)
           .then(res => res.json())
-          .catch(error => console.log(error));
+          // .catch(error => console.log(error));
              if (response.error) {
               console.log(response.error);
               // return this.props.history.push("/");
             }
             console.log(response);
-            alert(`${response.data.message}`)
+            // alert(`${response.data.message}`)
       }
 
     
@@ -106,7 +105,7 @@ export default function Post() {
       </div>}
       
       <div className="each-feed post">
-        <label for="title">Post Title*</label>
+        <label htmlFor="title">Post Title*</label>
         <br></br>
         <input
           placeholder="Write your title here..."
@@ -118,7 +117,7 @@ export default function Post() {
           onChange={handleChange}
           required
         />
-        <label for="article">Post Body*</label>
+        <label htmlFor="article">Post Body*</label>
         <br></br>
         <textarea
           className="comment"
@@ -131,7 +130,7 @@ export default function Post() {
         ></textarea>
         <div className="headers">
           <div className="left">
-            <label for="tag">Article Tag*</label>
+            <label htmlFor="tag">Article Tag*</label>
             <input
               placeholder="Type tag here..."
               className="comment"
@@ -145,16 +144,16 @@ export default function Post() {
         </div>
       </div>
 
-      <form  action="http://localhost:3001/api/v1/gifs" enctype="multipart/form-data"  method="POST" Authorization={token}>
-        <div class="form-group"> Data or Responses file
-          <input class="form-control" name="dataFile" type="file" />
+      <form  action="http://localhost:3001/api/v1/gifs" encType="multipart/form-data"  method="POST" authorization={token}>
+        <div className="form-group"> Data or Responses file
+          <input className="form-control" name="dataFile" type="file" />
           <input type="submit"/>
         </div>
         
       </form>
 
       <div className="each-feed post">
-        <label for="title">Post Title*</label>
+        <label htmlFor="title">Post Title*</label>
         <br></br>
         <input
           placeholder="Write your title here..."
@@ -166,7 +165,7 @@ export default function Post() {
           onChange={handleChange}
           required
         />
-        <label for="article">Post Body*</label>
+        <label htmlFor="article">Post Body*</label>
         <br></br>
         <textarea
           className="comment"
@@ -178,7 +177,7 @@ export default function Post() {
           onChange={handleChange}
         ></textarea>
         <div>
-          <label for="dataFile">Upload Image</label>
+          <label htmlFor="dataFile">Upload Image</label>
           <input 
             type="file" 
             name="dataFile" 
@@ -190,7 +189,7 @@ export default function Post() {
         </div>
         <div className="headers">
           <div className="left">
-            <label for="tag">Article Tag*</label>
+            <label htmlFor="tag">Article Tag*</label>
             <input
               placeholder="Type tag here..."
               className="comment"

@@ -41,7 +41,8 @@ export default function CreateUser(props) {
       body: JSON.stringify(state),
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        "crossorigin": "anonymous"
       }
     };
     const response = await fetch("http://localhost:3001/api/v1/auth/create-user", options)

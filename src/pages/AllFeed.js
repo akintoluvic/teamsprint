@@ -42,27 +42,30 @@ export default class AllFeed extends Component {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        // "crossorigin": "anonymous"
       }
     };
     const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/feed", options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
-              feed: feed.data.posts
+              feed: feed.data
             });
     console.log(feed.data)
   }
   getProfile = async () => {
     const token = sessionStorage.getItem('token')
+    const id = sessionStorage.getItem('id')
     const options = {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": token
+        "Authorization": token,
+        // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
+    const response = await fetch(`https://workplace-teamwork.herokuapp.com/api/v1/auth/profile/${id}`, options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
     this.setState({
