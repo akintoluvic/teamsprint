@@ -152,7 +152,7 @@ export default function Post() {
         
       </form>
 
-      <div className="each-feed post">
+      {/* <div className="each-feed post">
         <label htmlFor="title">Post Title*</label>
         <br></br>
         <input
@@ -201,7 +201,7 @@ export default function Post() {
           </div>
           <button className="btn" onClick={handlePost}>POST ARTICLE</button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
