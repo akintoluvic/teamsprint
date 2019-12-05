@@ -58,7 +58,6 @@ export default function CreateUser(props) {
         setState({ ...clear, done: response.data.message })
   }
 
-
   const { button } = props;
 
   return (
