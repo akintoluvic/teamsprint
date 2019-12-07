@@ -7,6 +7,7 @@ export default function Post() {
         article: "",
         dataFile: null,
         tag: "",
+        imageUrl: "",
         done: "",
         authorId: ""
       });
@@ -152,56 +153,6 @@ export default function Post() {
         
       </form>
 
-      {/* <div className="each-feed post">
-        <label htmlFor="title">Post Title*</label>
-        <br></br>
-        <input
-          placeholder="Write your title here..."
-          className="comment"
-          name="title"
-          autoFocus
-          type="text"
-          value={state.title}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="article">Post Body*</label>
-        <br></br>
-        <textarea
-          className="comment"
-          name="article"
-          rows="4"
-          cols="50"
-          placeholder="Write your comment here..."
-          value={state.article}
-          onChange={handleChange}
-        ></textarea>
-        <div>
-          <label htmlFor="dataFile">Upload Image</label>
-          <input 
-            type="file" 
-            name="dataFile" 
-            id="" 
-            // value={state.dataFile}
-            onChange={handleFile}
-            // disabled 
-          />
-        </div>
-        <div className="headers">
-          <div className="left">
-            <label htmlFor="tag">Article Tag*</label>
-            <input
-              placeholder="Type tag here..."
-              className="comment"
-              name="tag"
-              type="text"
-              value={state.tag}
-              onChange={handleChange}
-              />
-          </div>
-          <button className="btn" onClick={handlePost}>POST ARTICLE</button>
-        </div>
-      </div> */}
     </>
   );
 }
