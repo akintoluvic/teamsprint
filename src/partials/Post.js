@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../App"
 
 export default function Post() {
     const [state, setState] = useState({
@@ -25,24 +26,13 @@ export default function Post() {
           [e.target.name]: value
         });
       }
-      const handleFile = e => {
-        // e.preventDefault();
-        console.log(e.target.files[0])
-        setState({
-          ...state,
-          dataFile: e.target.files[0],
-        });
-      }
       const id = sessionStorage.getItem('id')
       const token = sessionStorage.getItem('token')
+
       const handlePost = async e => {
-        // e.preventDefault();
-        
+        e.preventDefault();
         const formData = new FormData();
-        formData.append("title", state.title);
         formData.append("dataFile", state.dataFile);
-        formData.append("article", state.article);
-        formData.append("tag", state.tag);
 
         const options = {
           method: "POST",
@@ -54,7 +44,7 @@ export default function Post() {
             "Authorization": token
           }
         };
-        await fetch("https://workplace-teamwork.herokuapp.com/api/v1/gifs", options)
+        await fetch(`${baseUrl}/gifs`, options)
           .then(res => res.json())
           .then(res => {
             if (res.error) {
@@ -73,11 +63,12 @@ export default function Post() {
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
-            "Authorization": token
+            "Authorization": token,
+            encType: "multipart/form-data"
             // "crossorigin": "anonymous"
           }
         };
-        const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/articles", options)
+        const response = await fetch(`${baseUrl}/articles`, options)
           .then(res => res.json())
           // .catch(error => console.log(error));
              if (response.error) {
@@ -145,7 +136,7 @@ export default function Post() {
         </div>
       </div>
 
-      <form  action="http://localhost:3001/api/v1/gifs" encType="multipart/form-data"  method="POST" authorization={token}>
+      <form  action={`${baseUrl}/v1/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
         <div className="form-group"> Data or Responses file
           <input className="form-control" name="dataFile" type="file" />
           <input type="submit"/>
