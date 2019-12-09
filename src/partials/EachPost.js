@@ -3,7 +3,7 @@ import Article from "../components/Article";
 import Image from "../components/Image";
 import Comment from "../components/Comment";
 import AllComment from "../components/AllComment";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 
 export default function EachPost(props) {
@@ -40,6 +40,14 @@ export default function EachPost(props) {
 
   return (
     <div>
+      <div className="each-feed post">
+          <div className="headers">
+            <h2 className="title">Single Post</h2>
+            <Link to='/feed'>
+              <button className="btn"> Back to My feed</button>
+          </Link>
+          </div>
+        </div>
       {(feed.imageurl === null) ? <Article key={feed.postid} tfeed={feed}/>:
       <Image key={feed.postid}  tfeed={feed} />} 
 
