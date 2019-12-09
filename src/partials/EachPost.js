@@ -1,4 +1,5 @@
 import React from "react";
+import { baseUrl } from "../App";
 import Article from "../components/Article";
 import Image from "../components/Image";
 import Comment from "../components/Comment";
@@ -13,7 +14,7 @@ export default function EachPost(props) {
   console.log(feed);
   console.log(myFeeds);
   
-  const getProfile = async () => {
+  const getPost = async () => {
     const token = sessionStorage.getItem('token')
     const options = {
       method: "GET",
@@ -22,7 +23,7 @@ export default function EachPost(props) {
         "Authorization": token
       }
     };
-    const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
+    const response = await fetch(`${baseUrl}/articles/${id}`, options)
       .then(res => res.json())
     if(response.error) {console.log(response.error)}
     this.setState({
@@ -48,6 +49,7 @@ export default function EachPost(props) {
           </Link>
           </div>
         </div>
+
       {(feed.imageurl === null) ? <Article key={feed.postid} tfeed={feed}/>:
       <Image key={feed.postid}  tfeed={feed} />} 
 
