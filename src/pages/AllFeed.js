@@ -66,7 +66,7 @@ export default class AllFeed extends Component {
         // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch(`${baseUrl}//auth/profile/${id}`, options)
+    const response = await fetch(`${baseUrl}/auth/profile/${id}`, options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
     this.setState({

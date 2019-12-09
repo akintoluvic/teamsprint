@@ -120,6 +120,14 @@ export default function Post() {
           value={state.article}
           onChange={handleChange}
         ></textarea>
+
+        <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
+          <div className="form-group"> Add Media
+            <input className="form-control" name="dataFile" type="file" />
+            <input type="submit"/>
+          </div>
+        </form>
+
         <div className="headers">
           <div className="left">
             <label htmlFor="tag">Article Tag*</label>
@@ -135,14 +143,6 @@ export default function Post() {
           <button className="btn" onClick={handlePostA}>POST ARTICLE</button>
         </div>
       </div>
-
-      <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
-        <div className="form-group"> Data or Responses file
-          <input className="form-control" name="dataFile" type="file" />
-          <input type="submit"/>
-        </div>
-        
-      </form>
 
     </>
   );
