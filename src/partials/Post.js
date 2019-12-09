@@ -136,7 +136,7 @@ export default function Post() {
         </div>
       </div>
 
-      <form  action={`${baseUrl}/v1/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
+      <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
         <div className="form-group"> Data or Responses file
           <input className="form-control" name="dataFile" type="file" />
           <input type="submit"/>
