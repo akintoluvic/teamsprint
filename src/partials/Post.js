@@ -9,7 +9,7 @@ export default function Post() {
         dataFile: null,
         tag: "",
         imageUrl: null,
-        done: "",
+        done: ""
       });
     
       // const clear = {
@@ -31,14 +31,16 @@ export default function Post() {
       const handlePost = async e => {
         e.preventDefault();
         const formData = new FormData();
-        formData.append("dataFile", state.dataFile);
+        const file = e.target.files[0]
+        console.log(file);
+        formData.append("dataFile", file);
 
         const options = {
           method: "POST",
-          body: JSON.stringify(state),
-          files: state.dataFile,
+          body: state,
+          files: formData,
           headers: {
-            "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+            // "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
             // boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s
             "Authorization": token
           }
@@ -120,12 +122,12 @@ export default function Post() {
           onChange={handleChange}
         ></textarea>
 
-        {/* <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}> */}
+        <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
           <div className="form-group"> Add Media
             <input className="form-control" onChange={handlePost} name="dataFile" type="file" />
-            <input type="submit"/>
+            {/* <input type="submit" value='Upload'/> */}
           </div>
-        {/* </form> */}
+        </form>
 
         <div className="headers">
           <div className="left">

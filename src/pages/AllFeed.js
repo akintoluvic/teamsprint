@@ -131,7 +131,7 @@ export default class AllFeed extends Component {
               <Route exact path="/post">
                 <Post />
               </Route>
-              <Route path="/feed/:id">
+              <Route path='/feed/:id'>
                 <EachPost myFeeds={this.state.feed}/>
               </Route>
               {/* <Route path="/feed/:id" component={<EachPost />}/> */}
