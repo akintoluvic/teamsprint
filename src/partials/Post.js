@@ -8,9 +8,8 @@ export default function Post() {
         article: "",
         dataFile: null,
         tag: "",
-        imageUrl: "",
+        imageUrl: null,
         done: "",
-        authorId: ""
       });
     
       // const clear = {
@@ -26,7 +25,7 @@ export default function Post() {
           [e.target.name]: value
         });
       }
-      const id = sessionStorage.getItem('id')
+      const authorId = sessionStorage.getItem('id')
       const token = sessionStorage.getItem('token')
 
       const handlePost = async e => {
@@ -57,14 +56,14 @@ export default function Post() {
       }
 
       const handlePostA = async e => {
-        const data = {id, ...state}
+        const data = {authorId, ...state}
         const options = {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
             "Authorization": token,
-            encType: "multipart/form-data"
+            // encType: "multipart/form-data"
             // "crossorigin": "anonymous"
           }
         };
@@ -121,12 +120,12 @@ export default function Post() {
           onChange={handleChange}
         ></textarea>
 
-        <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
+        {/* <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}> */}
           <div className="form-group"> Add Media
-            <input className="form-control" name="dataFile" type="file" />
+            <input className="form-control" onChange={handlePost} name="dataFile" type="file" />
             <input type="submit"/>
           </div>
-        </form>
+        {/* </form> */}
 
         <div className="headers">
           <div className="left">

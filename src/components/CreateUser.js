@@ -42,7 +42,7 @@ export default function CreateUser(props) {
       headers: {
         "Content-Type": "application/json",
         "Authorization": token,
-        "crossorigin": "anonymous"
+        // "crossorigin": "anonymous"
       }
     };
     const response = await fetch("http://localhost:3001/api/v1/auth/create-user", options)
@@ -75,7 +75,7 @@ export default function CreateUser(props) {
         {state.done}
       </div>}
       <form onSubmit={handlePost} className="profile-form" disabled>
-        <label for="firstName">
+        <label htmlFor="firstName">
           Firstname
           <input
             placeholder="Firstname"
@@ -87,7 +87,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="lastName">
+        <label htmlFor="lastName">
           Lastname
           <input
             type="text"
@@ -98,7 +98,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="email">
+        <label htmlFor="email">
           Email address
           <input
             placeholder="username@email.com"
@@ -109,7 +109,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="password">
+        <label htmlFor="password">
           Password
           <input
             type="password"
@@ -120,7 +120,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="gender">
+        <label htmlFor="gender">
           Gender
           <input
             placeholder="Gender"
@@ -131,7 +131,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="jobRole">
+        <label htmlFor="jobRole">
           Job Role
           <input
             type="text"
@@ -142,7 +142,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="department">
+        <label htmlFor="department">
           Department
           <input
             placeholder="Department"
@@ -153,7 +153,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="address">
+        <label htmlFor="address">
           Address
           <input
             type="text"
@@ -164,7 +164,7 @@ export default function CreateUser(props) {
             required
           />
         </label>
-        <label for="area">
+        <label htmlFor="area">
           User Type
           <input
             placeholder="Ugbor Express Road, Benin, Nigeria"
@@ -175,7 +175,7 @@ export default function CreateUser(props) {
             disabled
           />
         </label>
-        <label for="submit">
+        <label htmlFor="submit">
           Submit
           <button type="submit" name="submit" onClick={handlePost}>
             {button}
