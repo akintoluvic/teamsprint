@@ -46,7 +46,7 @@ export default function EditProfile(props) {
       </div>
 
       <form onSubmit={handleSubmit} className="profile-form" disabled>
-        <label for="firstName">
+        <label htmlFor="firstName">
           Firstname
           <input
             placeholder="Firstname"
@@ -58,7 +58,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="lastName">
+        <label htmlFor="lastName">
           Lastname
           <input
             type="text"
@@ -69,7 +69,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="email">
+        <label htmlFor="email">
           Email address
           <input
             placeholder="username@email.com"
@@ -80,7 +80,7 @@ export default function EditProfile(props) {
             disabled
           />
         </label>
-        <label for="password">
+        <label htmlFor="password">
           Password
           <input
             type="password"
@@ -91,7 +91,7 @@ export default function EditProfile(props) {
             disabled
           />
         </label>
-        <label for="gender">
+        <label htmlFor="gender">
           Gender
           <input
             placeholder="Gender"
@@ -102,7 +102,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="jobRole">
+        <label htmlFor="jobRole">
           Job Role
           <input
             type="text"
@@ -113,7 +113,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="department">
+        <label htmlFor="department">
           Department
           <input
             placeholder="Department"
@@ -124,7 +124,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="address">
+        <label htmlFor="address">
           Address
           <input
             type="text"
@@ -135,7 +135,7 @@ export default function EditProfile(props) {
             required
           />
         </label>
-        <label for="area">
+        <label htmlFor="area">
           User Type
           <input
             placeholder="Ugbor Express Road, Benin, Nigeria"
@@ -146,7 +146,7 @@ export default function EditProfile(props) {
             disabled
           />
         </label>
-        <label for="submit">
+        <label htmlFor="submit">
           Submit
           <button type="submit" name="submit">
             {button}

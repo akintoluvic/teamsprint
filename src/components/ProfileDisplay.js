@@ -26,7 +26,7 @@ export default function ProfileDisplay({userProfile, button}) {
         </div>
 
         <form onSubmit={handleSubmit} className="profile-form">
-          <label for="fname">
+          <label htmlFor="fname">
             Firstname
             <input
               placeholder="Firstname"
@@ -38,7 +38,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="lastname">
+          <label htmlFor="lastname">
             Lastname
             <input
               type="text"
@@ -49,7 +49,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="uname">
+          <label htmlFor="uname">
             Email address
             <input
               placeholder="username@email.com"
@@ -60,7 +60,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="psw">
+          <label htmlFor="psw">
             Password
             <input
               type="password"
@@ -71,7 +71,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="gender">
+          <label htmlFor="gender">
             Gender
             <input
               placeholder="Gender"
@@ -82,7 +82,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="job">
+          <label htmlFor="job">
             Job Role
             <input
               type="text"
@@ -93,7 +93,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="dept">
+          <label htmlFor="dept">
             Department
             <input
               placeholder="Department"
@@ -104,7 +104,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="address">
+          <label htmlFor="address">
             Address
             <input
               type="text"
@@ -115,7 +115,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="area">
+          <label htmlFor="area">
             User Type
             <input
               placeholder="Ugbor Express Road, Benin, Nigeria"
@@ -126,7 +126,7 @@ export default function ProfileDisplay({userProfile, button}) {
               disabled
             />
           </label>
-          <label for="submit">Submit
+          <label htmlFor="submit">Submit
             <Link to='/edit-profile'>
               <button type="submit" name="submit">{button}</button>
               </Link>
