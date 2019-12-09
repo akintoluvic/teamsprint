@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { baseUrl } from "../App"
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
@@ -46,7 +47,7 @@ export default class AllFeed extends Component {
         // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/feed", options)
+    const response = await fetch(`${baseUrl}/feed`, options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
@@ -65,7 +66,7 @@ export default class AllFeed extends Component {
         // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch(`https://workplace-teamwork.herokuapp.com/api/v1/auth/profile/${id}`, options)
+    const response = await fetch(`${baseUrl}//auth/profile/${id}`, options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
     this.setState({

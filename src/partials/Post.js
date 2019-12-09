@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { baseUrl } from "../App"
+import { baseUrl } from "../App";
 
 export default function Post() {
     const [state, setState] = useState({
