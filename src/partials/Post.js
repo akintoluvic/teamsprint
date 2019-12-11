@@ -31,14 +31,15 @@ export default function Post() {
       const handlePost = async e => {
         e.preventDefault();
         const formData = new FormData();
+        const fileInput = document.querySelector('#file') ;
         const file = e.target.files[0]
         console.log(file);
-        formData.append("dataFile", file);
+        formData.append("dataFile", fileInput.files[0]);
 
         const options = {
           method: "POST",
-          body: state,
-          files: formData,
+          body: formData,
+          // files: formData,
           headers: {
             // "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
             // boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s
@@ -124,7 +125,7 @@ export default function Post() {
 
         <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
           <div className="form-group"> Add Media
-            <input className="form-control" onChange={handlePost} name="dataFile" type="file" />
+            <input className="form-control" id="file" onChange={handlePost} name="dataFile" type="file" />
             {/* <input type="submit" value='Upload'/> */}
           </div>
         </form>

@@ -86,8 +86,8 @@ export default function EditProfile(props) {
             type="password"
             placeholder="xxxxxxxx"
             name="password"
-            value={userProfile.password}
-            onChange={profileChange}
+            // value={userProfile.password}
+            // onChange={profileChange}
             disabled
           />
         </label>
