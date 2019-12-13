@@ -387,3 +387,13 @@
 .home-form label {
   font-size: 14px;
 }
+
+/* Media Queries */
+@media (max-width: 1040px) {
+  .navbar .contents {
+    padding: 0 30px;
+  }
+  .page-container {
+    padding: 100px 30px 0;
+  }
+}
