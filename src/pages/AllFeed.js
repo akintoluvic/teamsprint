@@ -101,7 +101,7 @@ export default class AllFeed extends Component {
           <div className="sidebar">
             <SmallProfile />
             <SidebarTags />
-            <p>©2019 Greene Teamwork. All rights reserved.
+            <p>©2019 Vick Greenfields. All rights reserved.
             </p>
           </div>
           <div className="main-feed">
