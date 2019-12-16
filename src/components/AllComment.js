@@ -28,6 +28,7 @@ function EachComment(props) {
             </div>
             <p>
                 {eachComment.comment} 
+                <br></br>.
             </p>
         </div>
     )
