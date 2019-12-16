@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export default function Article(props) {
+export default function EachArticle(props) {
     const { tfeed } = props
+    console.log(tfeed);
     if(tfeed === undefined) {
         return <div>Loading...</div>
     }
@@ -21,8 +22,8 @@ export default function Article(props) {
             </p>
             <div className='footer'>
                 <button className='btn'>{tfeed.tag}</button>
-                <Link to={`/feed/${tfeed.postid}`} className='link'>
-                    <button className='btn'>VIEW full POST and COMMENTS</button>
+                <Link to='/feed' className='link'>
+                    <button className='btn'>BACK TO feed</button>
                 </Link>
             </div>
         </div>

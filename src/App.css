@@ -108,10 +108,17 @@
   display: flex;
   align-items: center;
 } */
-.navbar .link {
+.navbar a {
   text-decoration: none;
   color: #CBCFD4;
   margin-right: 30px;
+}
+.navbar a:hover{
+  color: #fff;
+}
+.navbar a:active {
+  color: #fff;
+  text-decoration: underline;
 }
 .navbar .user {
   background-color: #2D333A;
@@ -386,4 +393,14 @@
 }
 .home-form label {
   font-size: 14px;
+}
+
+/* Media Queries */
+@media (max-width: 1040px) {
+  .navbar .contents {
+    padding: 0 30px;
+  }
+  .page-container {
+    padding: 100px 30px 0;
+  }
 }

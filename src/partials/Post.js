@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../App";
 
 export default function Post() {
     const [state, setState] = useState({
@@ -7,8 +8,8 @@ export default function Post() {
         article: "",
         dataFile: null,
         tag: "",
-        done: "",
-        authorId: ""
+        imageUrl: null,
+        done: ""
       });
     
       // const clear = {
@@ -24,36 +25,28 @@ export default function Post() {
           [e.target.name]: value
         });
       }
-      const handleFile = e => {
-        // e.preventDefault();
-        console.log(e.target.files[0])
-        setState({
-          ...state,
-          dataFile: e.target.files[0],
-        });
-      }
-      const id = sessionStorage.getItem('id')
+      const authorId = sessionStorage.getItem('id')
       const token = sessionStorage.getItem('token')
+
       const handlePost = async e => {
-        // e.preventDefault();
-        
+        e.preventDefault();
         const formData = new FormData();
-        formData.append("title", state.title);
-        formData.append("dataFile", state.dataFile);
-        formData.append("article", state.article);
-        formData.append("tag", state.tag);
+        const fileInput = document.querySelector('#file') ;
+        const file = e.target.files[0]
+        console.log(file);
+        formData.append("dataFile", fileInput.files[0]);
 
         const options = {
           method: "POST",
-          body: JSON.stringify(state),
-          files: state.dataFile,
+          body: formData,
+          // files: formData,
           headers: {
-            "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
+            // "Content-Type": "multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW",
             // boundary=----WebKitFormBoundaryqTqJIxvkWFYqvP5s
             "Authorization": token
           }
         };
-        await fetch("https://workplace-teamwork.herokuapp.com/api/v1/gifs", options)
+        await fetch(`${baseUrl}/gifs`, options)
           .then(res => res.json())
           .then(res => {
             if (res.error) {
@@ -66,17 +59,18 @@ export default function Post() {
       }
 
       const handlePostA = async e => {
-        const data = {id, ...state}
+        const data = {authorId, ...state}
         const options = {
           method: "POST",
           body: JSON.stringify(data),
           headers: {
             "Content-Type": "application/json",
-            "Authorization": token
+            "Authorization": token,
+            // encType: "multipart/form-data"
             // "crossorigin": "anonymous"
           }
         };
-        const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/articles", options)
+        const response = await fetch(`${baseUrl}/articles`, options)
           .then(res => res.json())
           // .catch(error => console.log(error));
              if (response.error) {
@@ -128,6 +122,14 @@ export default function Post() {
           value={state.article}
           onChange={handleChange}
         ></textarea>
+
+        <form  action={`${baseUrl}/gifs`} encType="multipart/form-data"  method="POST" authorization={token}>
+          <div className="form-group"> Add Media
+            <input className="form-control" id="file" onChange={handlePost} name="dataFile" type="file" />
+            {/* <input type="submit" value='Upload'/> */}
+          </div>
+        </form>
+
         <div className="headers">
           <div className="left">
             <label htmlFor="tag">Article Tag*</label>
@@ -144,64 +146,6 @@ export default function Post() {
         </div>
       </div>
 
-      <form  action="http://localhost:3001/api/v1/gifs" encType="multipart/form-data"  method="POST" authorization={token}>
-        <div className="form-group"> Data or Responses file
-          <input className="form-control" name="dataFile" type="file" />
-          <input type="submit"/>
-        </div>
-        
-      </form>
-
-      <div className="each-feed post">
-        <label htmlFor="title">Post Title*</label>
-        <br></br>
-        <input
-          placeholder="Write your title here..."
-          className="comment"
-          name="title"
-          autoFocus
-          type="text"
-          value={state.title}
-          onChange={handleChange}
-          required
-        />
-        <label htmlFor="article">Post Body*</label>
-        <br></br>
-        <textarea
-          className="comment"
-          name="article"
-          rows="4"
-          cols="50"
-          placeholder="Write your comment here..."
-          value={state.article}
-          onChange={handleChange}
-        ></textarea>
-        <div>
-          <label htmlFor="dataFile">Upload Image</label>
-          <input 
-            type="file" 
-            name="dataFile" 
-            id="" 
-            // value={state.dataFile}
-            onChange={handleFile}
-            // disabled 
-          />
-        </div>
-        <div className="headers">
-          <div className="left">
-            <label htmlFor="tag">Article Tag*</label>
-            <input
-              placeholder="Type tag here..."
-              className="comment"
-              name="tag"
-              type="text"
-              value={state.tag}
-              onChange={handleChange}
-              />
-          </div>
-          <button className="btn" onClick={handlePost}>POST ARTICLE</button>
-        </div>
-      </div>
     </>
   );
 }

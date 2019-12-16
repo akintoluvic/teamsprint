@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { baseUrl } from "../App"
 import Navbar from "../components/Navbar";
 import SmallProfile from "../components/SmallProfile";
 import SidebarTags from "../components/SidebarTags";
@@ -46,7 +47,7 @@ export default class AllFeed extends Component {
         // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/feed", options)
+    const response = await fetch(`${baseUrl}/feed`, options)
     const feed = await response.json();
     if(feed.error) {console.log(feed.error)}
     this.setState({
@@ -65,7 +66,7 @@ export default class AllFeed extends Component {
         // "crossorigin": "anonymous"
       }
     };
-    const response = await fetch(`https://workplace-teamwork.herokuapp.com/api/v1/auth/profile/${id}`, options)
+    const response = await fetch(`${baseUrl}/auth/profile/${id}`, options)
     const profile = await response.json();
     if(profile.error) {console.log(profile.error)}
     this.setState({
@@ -100,7 +101,7 @@ export default class AllFeed extends Component {
           <div className="sidebar">
             <SmallProfile />
             <SidebarTags />
-            <p>©2019 Greene Teamwork. All rights reserved.
+            <p>©2019 Vick Greenfields. All rights reserved.
             </p>
           </div>
           <div className="main-feed">
@@ -130,7 +131,7 @@ export default class AllFeed extends Component {
               <Route exact path="/post">
                 <Post />
               </Route>
-              <Route path="/feed/:id">
+              <Route path='/feed/:id'>
                 <EachPost myFeeds={this.state.feed}/>
               </Route>
               {/* <Route path="/feed/:id" component={<EachPost />}/> */}

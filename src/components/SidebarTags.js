@@ -13,6 +13,7 @@ export default function SidebarTags() {
                 <Link to="/public" className='link'>tags</Link>
                 <hr />
                 <Link to="/public" className='link'>create-post</Link>
+                <hr />
             </div>
         </div>
     )

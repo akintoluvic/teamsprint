@@ -51,7 +51,7 @@ class App extends Component {
         "Content-Type": "application/json"
       }
     };
-    const response = await fetch("https://workplace-teamwork.herokuapp.com/api/v1/auth/signin", options)
+    const response = await fetch(`${baseUrl}/auth/signin`, options)
       .then(res => res.json())
         if (response.error) {
           this.setState({
@@ -111,3 +111,5 @@ function ProtectedRoute(props) {
   );
 }
 
+// export const baseUrl = "http://localhost:3001/api/v1"
+export const baseUrl = "https://workplace-teamwork.herokuapp.com/api/v1"

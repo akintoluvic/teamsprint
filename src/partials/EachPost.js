@@ -1,50 +1,71 @@
-import React from "react";
-import Article from "../components/Article";
-import Image from "../components/Image";
+import React, { useState, useEffect } from "react";
+import { baseUrl } from "../App";
+import EachArticle from "../components/EachArticle";
+// import Image from "../components/Image";
 import Comment from "../components/Comment";
 import AllComment from "../components/AllComment";
-import { useParams } from "react-router-dom";
-
+import { Link, useParams } from "react-router-dom";
 
 export default function EachPost(props) {
+  const [post, setPost] = useState({});
+  const [comments, setComments] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
   let { id } = useParams();
-  const { myFeeds } = props;
-  const feed =  myFeeds.filter(async myFeed =>  await myFeed.postid === id);
-  console.log(feed);
-  console.log(myFeeds);
+  // const { myFeeds } = props;
+  // const feed = myFeeds.filter(myFeed => myFeed.postid === id);
+
   
-  const getProfile = async () => {
-    const token = sessionStorage.getItem('token')
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": token
+  useEffect(() => {
+    const getPost = async () => {
+      const token = sessionStorage.getItem("token");
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token
+        }
+      };
+      const response = await fetch(`${baseUrl}/articles/${id}`, options)
+        .then(res => res.json())
+        .catch(error => console.log(error));
+      if (response.error) {
+        console.log(response.error);
       }
+      setPost({
+        ...response.data
+      });
+      setComments([
+        ...response.data.comments
+      ]);
+      console.log(response.data.comments);
     };
-    const response = await fetch("http://localhost:3001/api/v1/auth/profile/49", options)
-      .then(res => res.json())
-    if(response.error) {console.log(response.error)}
-    this.setState({
-      profile: response.data
-    });
-    console.log(response.error)
-  }
+    getPost();
+  }, [id]);
 
-  // componentDidMount() {
-
+  // if (feed.lenght === 0) {
+  //   return <div>Loading...</div>;
   // }
-  if(feed.lenght === 0) {
-    return <div>Loading...</div>
-}
 
   return (
     <div>
-      {(feed.imageurl === null) ? <Article key={feed.postid} tfeed={feed}/>:
-      <Image key={feed.postid}  tfeed={feed} />} 
+      <div className="each-feed post">
+        <div className="headers">
+          <h2 className="title">Single Post</h2>
+          <Link to="/feed">
+            <button className="btn"> Back to My feed</button>
+          </Link>
+        </div>
+      </div>
+      <EachArticle key={post.postid} tfeed={post} />
 
-      <Comment />
-      <AllComment />
+      <Comment Id={id} />
+      <AllComment allComment={comments}/>
     </div>
   );
 }
+
+// const GetId(postid) {
+//   let { id } = useParams();
+//   return postid = id;
+// }
