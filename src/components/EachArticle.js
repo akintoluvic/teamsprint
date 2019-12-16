@@ -1,11 +1,12 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-export default function Article(props) {
+export default function EachArticle(props) {
     const { tfeed } = props
-    // if(tfeed === undefined) {
-    //     return <div>Loading...</div>
-    // }
+    console.log(tfeed);
+    if(tfeed === undefined) {
+        return <div>Loading...</div>
+    }
     // console.log(tfeed.createdon)
     return (
         <div className='each-feed'>
