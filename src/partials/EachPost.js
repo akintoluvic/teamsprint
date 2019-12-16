@@ -59,7 +59,7 @@ export default function EachPost(props) {
       </div>
       <EachArticle key={post.postid} tfeed={post} />
 
-      <Comment postid={id} />
+      <Comment Id={id} />
       <AllComment allComment={comments}/>
     </div>
   );
