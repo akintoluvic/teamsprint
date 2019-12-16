@@ -1,12 +1,19 @@
 import React from 'react';
 
-export default function AllComment() {
+export default function AllComment(props) {
+    const { comments } = props;
+    if(comments === undefined) {
+        return <div>Loading...</div>
+    }
     return (
         <div className='each-feed'>
             <h3>COMMENTS</h3>
-            <EachComment />
-            <EachComment />
-            <EachComment />
+            {comments.lenght === 0 ? 
+            comments.map(comment => <EachComment eachComment={comment} />)
+            : 'No'}
+    }
+        
+            
         </div>
     )
 }

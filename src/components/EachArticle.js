@@ -22,8 +22,8 @@ export default function EachArticle(props) {
             </p>
             <div className='footer'>
                 <button className='btn'>{tfeed.tag}</button>
-                <Link to={`/feed/${tfeed.postid}`} className='link'>
-                    <button className='btn'>VIEW full POST and COMMENTS</button>
+                <Link to='/feed' className='link'>
+                    <button className='btn'>BACK TO feed</button>
                 </Link>
             </div>
         </div>

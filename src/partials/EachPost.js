@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { baseUrl } from "../App";
-import Article from "../components/Article";
+import EachArticle from "../components/EachArticle";
 // import Image from "../components/Image";
 import Comment from "../components/Comment";
 import AllComment from "../components/AllComment";
@@ -10,7 +10,6 @@ export default function EachPost(props) {
   const [post, setPost] = useState({});
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-
 
   let { id } = useParams();
   // const { myFeeds } = props;
@@ -39,7 +38,7 @@ export default function EachPost(props) {
       setComments({
         ...response.data.comments
       });
-      console.log(response.data);
+      console.log(response.data.comments);
     };
     getPost();
   }, [id]);
@@ -58,10 +57,10 @@ export default function EachPost(props) {
           </Link>
         </div>
       </div>
-      <Article key={post.postid} tfeed={post} />
+      <EachArticle key={post.postid} tfeed={post} />
 
-      <Comment />
-      <AllComment />
+      <Comment postid={id} />
+      <AllComment allComment={comments}/>
     </div>
   );
 }
