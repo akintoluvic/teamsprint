@@ -1,23 +1,25 @@
 import React from 'react';
 
 export default function AllComment(props) {
-    const { comments } = props;
-    if(comments === undefined) {
+    const { allComment } = props;
+    if(allComment === 0) {
         return <div>Loading...</div>
     }
+    console.log(allComment)
     return (
         <div className='each-feed'>
-            <h3>COMMENTS</h3>
-            {comments.lenght === 0 ? 
-            comments.map(comment => <EachComment eachComment={comment} />)
-            : 'No'}
-    }
-        
+            {/* <h3>COMMENTS</h3> */}
+            {/* {allComment.lenght === 0 ? 'No' :
+            allComment.map(comment => <EachComment eachComment={comment} />)
+            } */}
+
+            { allComment.map(comment => <EachComment key={comment.commentid} eachComment={comment} />)}
             
         </div>
     )
 }
-function EachComment() {
+function EachComment(props) {
+    const { eachComment } = props;
     return (
         <div className='each-comment'>
             <div className='left'>
@@ -25,7 +27,7 @@ function EachComment() {
                 <span>21m</span>
             </div>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla faucibus egestas elit, at eleifend elit ornare ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nulla faucibus egestas elit, at eleifend elit ornare ut. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Lorem ipsum dolor sit amet,consectetur adipiscing elit. 
+                {eachComment.comment} 
             </p>
         </div>
     )

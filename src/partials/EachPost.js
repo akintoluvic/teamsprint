@@ -35,9 +35,9 @@ export default function EachPost(props) {
       setPost({
         ...response.data
       });
-      setComments({
+      setComments([
         ...response.data.comments
-      });
+      ]);
       console.log(response.data.comments);
     };
     getPost();
