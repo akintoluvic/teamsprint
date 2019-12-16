@@ -9,12 +9,12 @@ export default function Navbar() {
             <div className='contents'>
                 <div className='brand'>
                     <img src={logo} alt='Team Logo'/>
-                    <h2>Teamwork</h2>
+                    <h2>Teamsprint</h2>
                 </div>
                 <div className='navs'>
                     <Link to="/feed" className='link'>my feed</Link>
                     <Link to="/profile" className='link'>profile</Link>
-                    <Link to="/#" className='link'>tags</Link>
+                    {/* <Link to="/#" className='link'>tags</Link> */}
                     <Link to="/post" className='link'>create-post</Link>
                     <Link to="/create-user" className='link'>create-user</Link>
                     {/* <Link to={`/feed/${id}`} className='link'>single post</Link> */}

@@ -19,12 +19,12 @@ export default function Home(props) {
     return (
         <div className='home'>
             <div className='home-text' >
-                <h1>Greene Teamwork App</h1>
+                <h1>Greene Teamsprint App</h1>
                 <p>
-                Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
+                Welcome to teamsprint, great teams are powered by teamsprint. Teamsprint is all about collaboration, team building and excellent results. Get cranking.
                 </p>
                 <Link to='/feed'>
-                <button >Get started today</button>
+                {/* <button >Get started today</button> */}
                 </Link>
             </div>
             <form onSubmit={handleSubmit} className='home-form' 
@@ -53,9 +53,9 @@ export default function Home(props) {
                     required 
                 />
                 {(value.err.lenght === '') ? <br></br> : <p className='error'>{value.err}</p>}
-                <button >start teamwork</button>
+                <button >start sprint</button>
             </form>
-            <footer>©2019 Greene Teamwork. All rights reserved.</footer>
+            <footer>©2019 Vick Greenfields. All rights reserved.</footer>
         </div>
     )
 }
