@@ -19,7 +19,8 @@ export default function Home(props) {
     return (
         <div className='home'>
             <div className='home-text' >
-                <h1>Greene Teamsprint App</h1>
+                <h1 className='desktop'>Greene Teamsprint App</h1>
+                {/* <h2 className='mobile'>Teamsprint</h2> */}
                 <p>
                 Welcome to teamsprint, great teams are powered by teamsprint. Teamsprint is all about collaboration, team building and excellent results. Get cranking.
                 </p>

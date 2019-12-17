@@ -2,6 +2,9 @@
   box-sizing: border-box;
   font-family: 'Rubik';
 }
+/* .mobile {
+  display: none;
+} */
 /* Homepage Styles */
 .home {
   display: flex;
@@ -399,10 +402,43 @@
 
 /* Media Queries */
 @media (max-width: 1040px) {
-  .navbar .contents {
+  .navbar .contents, .home {
     padding: 0 30px;
+  }
+  .home h1 {
+    font-size: 36px;
+  }
+  .home-text p {
+    font-size: 16px;
   }
   .page-container {
     padding: 100px 30px 0;
   }
+}
+
+@media (max-width: 750px) {
+  /* .desktop {
+    display: none;
+  } */
+  .home {
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text {
+    width: auto;
+    margin-top: 5vh;
+    text-align: center;
+  }
+  .home-text p {
+    display: none;
+  }
+  .home-form {
+    margin-top: 5vh;
+  }
+  /* .navbar .contents, {
+    padding: 0 30px;
+  }
+  .page-container {
+    padding: 100px 30px 0;
+  } */
 }
