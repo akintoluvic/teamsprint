@@ -446,6 +446,9 @@
     margin-left: 0;
     width: 100vw;
   }
+  .profile-form label {
+    width: 100%;
+  }
   /* .navbar .contents, {
     padding: 0 30px;
   }
