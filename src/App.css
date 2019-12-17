@@ -87,6 +87,7 @@
 }
 
 /* Navbar */
+.nav-links {display: none;}
 .navbar {
   height: 80px;
   background-color: #3C444D;

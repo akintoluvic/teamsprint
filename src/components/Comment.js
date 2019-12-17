@@ -38,7 +38,6 @@ export default function Comment(props) {
             <textarea 
                 className='comment'
                 rows="4" 
-                cols="50" 
                 name="comment"
                 value={comment}
                 placeholder='Write your comment here...'
