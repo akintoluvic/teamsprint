@@ -2,6 +2,9 @@
   box-sizing: border-box;
   font-family: 'Rubik';
 }
+:root {
+  --borderColor: #2D333A;
+}
 /* .mobile {
   display: none;
 } */
@@ -434,6 +437,13 @@
   }
   .home-form {
     margin-top: 5vh;
+  }
+  .sidebar {
+    display: none;
+  }
+  .main-feed {
+    margin-left: 0;
+    width: 100vw;
   }
   /* .navbar .contents, {
     padding: 0 30px;
