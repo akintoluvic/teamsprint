@@ -9,13 +9,6 @@ import {
 export default function Home(props) {
     const {value, handleChange, handleSubmit} = props;
 
-    // function handleChange(e) {
-    //     const value = e.target.value;
-    //     setState({
-    //       ...state,
-    //       [e.target.name]: value
-    //     });
-    // }
     return (
         <div className='home'>
             <div className='home-text' >
