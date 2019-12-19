@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    Link,
-    // Redirect,
-    // useHistory,
-    // useLocation
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
     const {value, handleChange, handleSubmit} = props;
