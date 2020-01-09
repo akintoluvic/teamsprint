@@ -49,11 +49,8 @@ export default function CreateUser(props) {
       .then(res => res.json())
         if (response.error) {
           console.log(response.error);
-          // return this.props.history.push("/");
         }
         console.log(response);
-        // let history = useHistory();
-        // this.props.history.push("/feed");
         alert(`${response.data.message}`)
         setState({ ...clear, done: response.data.message })
   }

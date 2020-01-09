@@ -73,8 +73,8 @@ export default class AllFeed extends Component {
       profile: profile.data
     });
     console.log(profile.data)
-
   }
+  
   componentDidMount() {
      this.getPosts();
      this.getProfile();

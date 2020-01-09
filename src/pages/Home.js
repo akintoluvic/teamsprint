@@ -1,30 +1,19 @@
 import React from 'react';
-import {
-    Link,
-    // Redirect,
-    // useHistory,
-    // useLocation
-  } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
     const {value, handleChange, handleSubmit} = props;
 
-    // function handleChange(e) {
-    //     const value = e.target.value;
-    //     setState({
-    //       ...state,
-    //       [e.target.name]: value
-    //     });
-    // }
     return (
         <div className='home'>
             <div className='home-text' >
-                <h1>Greene Teamwork App</h1>
+                <h1 className='desktop'>Greene Teamsprint App</h1>
+                {/* <h2 className='mobile'>Teamsprint</h2> */}
                 <p>
-                Welcome to teamwork, great teams are powered by teamwork. Teamwork is all about collaboration, team building and excellent results. Get cranking.
+                Welcome to teamsprint. Teamsprint is all about collaboration, team building and excellent results. Great teams are powered by teamsprint, get cranking.
                 </p>
                 <Link to='/feed'>
-                <button >Get started today</button>
+                {/* <button >Get started today</button> */}
                 </Link>
             </div>
             <form onSubmit={handleSubmit} className='home-form' 
@@ -53,9 +42,9 @@ export default function Home(props) {
                     required 
                 />
                 {(value.err.lenght === '') ? <br></br> : <p className='error'>{value.err}</p>}
-                <button >start teamwork</button>
+                <button >start sprint</button>
             </form>
-            <footer>©2019 Greene Teamwork. All rights reserved.</footer>
+            <footer>©2020 Vick Greenfields. All rights reserved.</footer>
         </div>
     )
 }

@@ -2,6 +2,12 @@
   box-sizing: border-box;
   font-family: 'Rubik';
 }
+:root {
+  --borderColor: #2D333A;
+}
+/* .mobile {
+  display: none;
+} */
 /* Homepage Styles */
 .home {
   display: flex;
@@ -56,6 +62,7 @@
   font-family: 'Rubik';
   color: #FFFFFF;
   font-weight: bold;
+  cursor: pointer;
 }
 .home-form label {
   font-size: 14px;
@@ -81,6 +88,7 @@
 }
 
 /* Navbar */
+.nav-links {display: none;}
 .navbar {
   height: 80px;
   background-color: #3C444D;
@@ -102,7 +110,8 @@
 .navbar .brand h2 {
   font-size: 20px;
   margin-left: 15px;
-  font-weight: bold;
+  font-weight: 900;
+  color: #fff;
 }
 /* .navbar .navs {
   display: flex;
@@ -112,6 +121,7 @@
   text-decoration: none;
   color: #CBCFD4;
   margin-right: 30px;
+  font-size: 14px;
 }
 .navbar a:hover{
   color: #fff;
@@ -397,10 +407,53 @@
 
 /* Media Queries */
 @media (max-width: 1040px) {
-  .navbar .contents {
+  .navbar .contents, .home {
     padding: 0 30px;
+  }
+  .home h1 {
+    font-size: 36px;
+  }
+  .home-text p {
+    font-size: 16px;
   }
   .page-container {
     padding: 100px 30px 0;
   }
+}
+
+@media (max-width: 750px) {
+  /* .desktop {
+    display: none;
+  } */
+  .home {
+    flex-direction: column;
+    height: auto;
+  }
+  .home-text {
+    width: auto;
+    margin-top: 5vh;
+    text-align: center;
+  }
+  .home-text p {
+    display: none;
+  }
+  .home-form {
+    margin-top: 5vh;
+  }
+  .sidebar {
+    display: none;
+  }
+  .main-feed {
+    margin-left: 0;
+    width: 100vw;
+  }
+  .profile-form label {
+    width: 100%;
+  }
+  /* .navbar .contents, {
+    padding: 0 30px;
+  }
+  .page-container {
+    padding: 100px 30px 0;
+  } */
 }
