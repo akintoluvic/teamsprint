@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/teamsprint/static/css/main.42850750.chunk.css",
+    "main.js": "/teamsprint/static/js/main.2cf86cec.chunk.js",
+    "main.js.map": "/teamsprint/static/js/main.2cf86cec.chunk.js.map",
+    "runtime-main.js": "/teamsprint/static/js/runtime-main.f9e1c105.js",
+    "runtime-main.js.map": "/teamsprint/static/js/runtime-main.f9e1c105.js.map",
+    "static/js/2.6e6d0bf7.chunk.js": "/teamsprint/static/js/2.6e6d0bf7.chunk.js",
+    "static/js/2.6e6d0bf7.chunk.js.map": "/teamsprint/static/js/2.6e6d0bf7.chunk.js.map",
+    "index.html": "/teamsprint/index.html",
+    "precache-manifest.47bbe99ba0b72eddfa71cec29571e744.js": "/teamsprint/precache-manifest.47bbe99ba0b72eddfa71cec29571e744.js",
+    "service-worker.js": "/teamsprint/service-worker.js",
+    "static/css/main.42850750.chunk.css.map": "/teamsprint/static/css/main.42850750.chunk.css.map",
+    "static/media/avatar.jpg": "/teamsprint/static/media/avatar.e67e358c.jpg",
+    "static/media/logo.svg": "/teamsprint/static/media/logo.598ed987.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9e1c105.js",
+    "static/js/2.6e6d0bf7.chunk.js",
+    "static/css/main.42850750.chunk.css",
+    "static/js/main.2cf86cec.chunk.js"
+  ]
+}
