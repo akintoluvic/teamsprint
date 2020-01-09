@@ -62,6 +62,7 @@
   font-family: 'Rubik';
   color: #FFFFFF;
   font-weight: bold;
+  cursor: pointer;
 }
 .home-form label {
   font-size: 14px;

@@ -14,7 +14,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
-  "homepage": "http://akintoluvic.github.io/devnest",
+  "homepage": "http://akintoluvic.github.io/teamsprint",
   "eslintConfig": {
     "extends": "react-app"
   },

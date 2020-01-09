@@ -10,7 +10,7 @@ export default function Home(props) {
                 <h1 className='desktop'>Greene Teamsprint App</h1>
                 {/* <h2 className='mobile'>Teamsprint</h2> */}
                 <p>
-                Welcome to teamsprint, great teams are powered by teamsprint. Teamsprint is all about collaboration, team building and excellent results. Get cranking.
+                Welcome to teamsprint. Teamsprint is all about collaboration, team building and excellent results. Great teams are powered by teamsprint, get cranking.
                 </p>
                 <Link to='/feed'>
                 {/* <button >Get started today</button> */}
@@ -44,7 +44,7 @@ export default function Home(props) {
                 {(value.err.lenght === '') ? <br></br> : <p className='error'>{value.err}</p>}
                 <button >start sprint</button>
             </form>
-            <footer>©2019 Vick Greenfields. All rights reserved.</footer>
+            <footer>©2020 Vick Greenfields. All rights reserved.</footer>
         </div>
     )
 }
