@@ -39,9 +39,9 @@ export default function Navbar() {
                     <li>
                         <Link to="/create-user" className='link'>create-user</Link>
                     </li>
-                    <li>
+                    {/* <li>
                         <Link to="/feed/tags" className='link'>create-user</Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="/" onClick={() => sessionStorage.clear()} className='link'>Logout</Link>
                     </li>

@@ -472,12 +472,12 @@
   display: none;
 }
 .show-nav {
-  background-color: var(--borderColor);
+  background-color: #3C444D;
   overflow-y: visible;
   width: 100vw;
   position: fixed;
-  top: 65px;
-  left: 30px;
+  top: 63px;
+  margin-left: -30px;
 }
 li {
   margin-bottom: 10px;
