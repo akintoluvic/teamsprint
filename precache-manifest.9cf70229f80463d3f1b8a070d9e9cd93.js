@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5e1ab6cb0958f0a46b11d1875ba327b1",
+    "revision": "b36c7005a9768a485aa5ed9869983c55",
     "url": "/teamsprint/index.html"
   },
   {
-    "revision": "3682b7fb0f9f35a6721e",
+    "revision": "ee8c4a634bca2a1fbcc8",
     "url": "/teamsprint/static/css/main.42850750.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/teamsprint/static/js/2.6e6d0bf7.chunk.js"
   },
   {
-    "revision": "3682b7fb0f9f35a6721e",
-    "url": "/teamsprint/static/js/main.2cf86cec.chunk.js"
+    "revision": "ee8c4a634bca2a1fbcc8",
+    "url": "/teamsprint/static/js/main.38faf9cd.chunk.js"
   },
   {
     "revision": "571e1a58cc4056fd32da",
